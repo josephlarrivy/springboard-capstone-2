@@ -1,0 +1,23 @@
+{
+  "name": "capstone-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephlarrivy/springboard-capstone-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephlarrivy/springboard-capstone-2/issues"
+  },
+  "homepage": "https://github.com/josephlarrivy/springboard-capstone-2#readme",
+  "dependencies": {
+    "googleapis": "^110.0.0"
+  }
+}
