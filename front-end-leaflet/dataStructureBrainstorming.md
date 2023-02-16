@@ -18,27 +18,102 @@ caller information
 
 
 
-
 {
-    indicent_number : 000,
-    initialization_time : date/time
-    nature_code: xxx,
-    location : {
-        address : {
-            street: xxx,
-            city: xxx,
-            state: xxx,
-            zip: xxx,
+    "indicent_number" : "1",
+    "initialization_time" : "date/time",
+    "nature_code": "xxx",
+    "location" : {
+        "address" : {
+            "street": "xxx",
+            "city": "xxx",
+            "state": "xxx",
+            "zip": "xxx"
+        },
+        "point" : {
+            "latitude" : "000",
+            "longitude" : "000"
         }
-        point : {
-            latitude : 000,
-            longitude : 000,
-        }
-    }
-    call_received_by : xxx,
-    caller : {
-        name : xxx,
-        on_location : true/false
-    }
-    outcome_status : xxx
+    },
+    "outcome_status" : "xxx",
+    "responders" : []
 }
+
+
+
+
+let list = new LinkedList({
+    "indicent_number": "1",
+    "initialization_time": "date/time",
+    "nature_code": "xxx",
+    "location": {
+        "address": {
+            "street": "xxx",
+            "city": "xxx",
+            "state": "xxx",
+            "zip": "xxx"
+        },
+        "point": {
+            "latitude": "000",
+            "longitude": "000"
+        }
+    },
+    "outcome_status": "xxx",
+    "responders" : []
+})
+list.append({
+    "indicent_number": "2",
+    "initialization_time": "date/time",
+    "nature_code": "xxx",
+    "location": {
+        "address": {
+            "street": "xxx",
+            "city": "xxx",
+            "state": "xxx",
+            "zip": "xxx"
+        },
+        "point": {
+            "latitude": "000",
+            "longitude": "000"
+        }
+    },
+    "outcome_status": "xxx",
+    "responders" : []
+})
+list.append({
+    "indicent_number": "3",
+    "initialization_time": "date/time",
+    "nature_code": "xxx",
+    "location": {
+        "address": {
+            "street": "xxx",
+            "city": "xxx",
+            "state": "xxx",
+            "zip": "xxx"
+        },
+        "point": {
+            "latitude": "000",
+            "longitude": "000"
+        }
+    },
+    "outcome_status": "xxx",
+    "responders" : []
+})
+list.append({
+    "indicent_number": "4",
+    "initialization_time": "date/time",
+    "nature_code": "xxx",
+    "location": {
+        "address": {
+            "street": "xxx",
+            "city": "xxx",
+            "state": "xxx",
+            "zip": "xxx"
+        },
+        "point": {
+            "latitude": "000",
+            "longitude": "000"
+        }
+    },
+    "outcome_status": "xxx",
+    "responders" : []
+})

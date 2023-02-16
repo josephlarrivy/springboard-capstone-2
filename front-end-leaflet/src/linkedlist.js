@@ -15,10 +15,18 @@ class LinkedList {
     this.append(event);
   }
 
+  // console.log() all items
+  print() {
+    let current = this.head;
+    while (current !== null) {
+      console.log(current);
+      current = current.next;
+    }
+  }
+
   // push(event): add new value to end of list.
   append(event) {
     let newItem = new Item(event);
-
     if (!this.head) {
       this.head = newItem;
       this.tail = this.head;
@@ -29,15 +37,6 @@ class LinkedList {
       this.tail = newItem;
     }
     this.length += 1;
-  }
-
-  // console.log() all items
-  print() {
-    let current = this.head;
-    while (current !== null) {
-      console.log(current);
-      current = current.next;
-    }
   }
 
   // adds new item to front of list
@@ -55,22 +54,138 @@ class LinkedList {
     this.length += 1;
   }
 
+  // returns an event by index
+  returnByIdx(idx) {
+    let current = this.head;
+    let count = 0;
+    while (current !== null && count != idx) {
+      count += 1;
+      current = current.next;
+    }
+    return current;
+  }
 
+  // gets the (num) of most recent events, sorted
+  getMostRecent(num) {
+    let array = [];
+    let current = this.head;
+    while (current !== null) {
+      if (array.length == 0) {
+        array.push(current);
+      } else {
+        // console.log('  ')
+        // console.log(current.event.initialization_time)
+        // console.log(array[0].event.initialization_time)
+        // console.log('  ')
+        if (current.event.initialization_time < array[0].event.initialization_time) {
+          array.unshift(current.event.initialization_time)
+        }
+      }
+
+
+
+
+
+
+
+
+      // console.log(current);
+      // console.log(current.event.initialization_time);
+      current = current.next;
+    }
+  }
 
 
 }
 
 
+const date1 = "2023-02-11T22:43:14.977Z"
+const date2 = "2023-02-12T22:43:14.977Z"
+const date3 = "2023-02-13T22:43:14.977Z"
+const date4 = "2023-02-16T22:42:49.141Z"
 
-let list = new LinkedList(1)
-list.append(2)
-list.append(3)
-list.append(4)
-list.append(5)
-list.unshift(6)
+console.log(date1 < date2) //true
 
 
-// console.log(list)
-list.print()
+let list = new LinkedList({
+  "indicent_number": "1",
+  "initialization_time": date1,
+  "nature_code": "xxx",
+  "location": {
+    "address": {
+      "street": "xxx",
+      "city": "xxx",
+      "state": "xxx",
+      "zip": "xxx"
+    },
+    "point": {
+      "latitude": "000",
+      "longitude": "000"
+    }
+  },
+  "outcome_status": "xxx",
+  "responders": []
+})
+list.append({
+  "indicent_number": "2",
+  "initialization_time": date2,
+  "nature_code": "xxx",
+  "location": {
+    "address": {
+      "street": "xxx",
+      "city": "xxx",
+      "state": "xxx",
+      "zip": "xxx"
+    },
+    "point": {
+      "latitude": "000",
+      "longitude": "000"
+    }
+  },
+  "outcome_status": "xxx",
+  "responders": []
+})
+list.append({
+  "indicent_number": "3",
+  "initialization_time": date3,
+  "nature_code": "xxx",
+  "location": {
+    "address": {
+      "street": "xxx",
+      "city": "xxx",
+      "state": "xxx",
+      "zip": "xxx"
+    },
+    "point": {
+      "latitude": "000",
+      "longitude": "000"
+    }
+  },
+  "outcome_status": "xxx",
+  "responders": []
+})
+list.append({
+  "indicent_number": "4",
+  "initialization_time": date4,
+  "nature_code": "xxx",
+  "location": {
+    "address": {
+      "street": "xxx",
+      "city": "xxx",
+      "state": "xxx",
+      "zip": "xxx"
+    },
+    "point": {
+      "latitude": "000",
+      "longitude": "000"
+    }
+  },
+  "outcome_status": "xxx",
+  "responders": []
+})
+
+
+list.getMostRecent()
+
 
 module.exports = LinkedList;
