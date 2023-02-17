@@ -4,7 +4,7 @@
 
 require("colors");
 
-const SECRET_KEY = process.env.SECRET_KEY || "canYouKeepASecret?";
+const SECRET_KEY = process.env.SECRET_KEY || "doNotTell";
 
 const PORT = +process.env.PORT || 3001;
 

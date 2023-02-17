@@ -11,7 +11,7 @@ const { ExpressError,NotFoundError,UnauthorizedError,BadRequestError,ForbiddenEr
 class User {
 
   static async register(
-    { username, password, firstName, lastName, email, privilegeLevel }) {
+    { username, password, firstName, lastName, email }) {
 
 
     const duplicateCheck = await db.query(
@@ -24,7 +24,7 @@ class User {
       throw new BadRequestError(`Duplicate username: ${username}`);
     }
 
-    
+
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
 
     const result = await db.query(
@@ -43,7 +43,7 @@ class User {
         firstName,
         lastName,
         email,
-        privilegeLevel,
+        0,
       ],
     );
 
