@@ -98,8 +98,8 @@ export let testingData = new LinkedList({
       "zip": "xxx"
     },
     "point": {
-      "latitude": "46.798031",
-      "longitude": "-92.150649"
+      "latitude": 46.798031,
+      "longitude": -92.150649
     }
   },
   "outcome_status": "xxx",
@@ -117,8 +117,8 @@ testingData.append({
       "zip": "xxx"
     },
     "point": {
-      "latitude": "46.779225",
-      "longitude": "-92.204929"
+      "latitude": 46.779225,
+      "longitude": -92.204929
     }
   },
   "outcome_status": "xxx",
@@ -136,8 +136,8 @@ testingData.append({
       "zip": "xxx"
     },
     "point": {
-      "latitude": "46.738300",
-      "longitude": "-92.185690"
+      "latitude": 46.738300,
+      "longitude": -92.185690
     }
   },
   "outcome_status": "xxx",
@@ -155,8 +155,8 @@ testingData.append({
       "zip": "xxx"
     },
     "point": {
-      "latitude": "46.825287",
-      "longitude": "-92.035217"
+      "latitude": 46.825287,
+      "longitude": -92.035217
     }
   },
   "outcome_status": "xxx",
