@@ -46,9 +46,9 @@ const DisplayMap = () => {
                 ]}
               />
             )
-            
           })
         }
+        
       </MapContainer>
     );
   }

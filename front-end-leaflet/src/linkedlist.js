@@ -75,6 +75,11 @@ export class LinkedList {
     return current;
   }
 
+  // creates linked list from all unresolved event in db
+  createEventsLinkedListFromDB() {
+    console.log('test')
+  }
+
 }
 
 
@@ -87,7 +92,7 @@ const date4 = "2023-02-16T22:42:49.141Z"
 
 
 export let testingData = new LinkedList({
-  "indicent_number": "1",
+  "indicent_id": "1",
   "initialization_time": date1,
   "nature_code": "xxx",
   "location": {
@@ -106,7 +111,7 @@ export let testingData = new LinkedList({
   "responders": []
 })
 testingData.append({
-  "indicent_number": "2",
+  "indicent_id": "2",
   "initialization_time": date2,
   "nature_code": "xxx",
   "location": {
@@ -125,7 +130,7 @@ testingData.append({
   "responders": []
 })
 testingData.append({
-  "indicent_number": "3",
+  "indicent_id": "3",
   "initialization_time": date3,
   "nature_code": "xxx",
   "location": {
@@ -144,7 +149,7 @@ testingData.append({
   "responders": []
 })
 testingData.append({
-  "indicent_number": "4",
+  "indicent_id": "4",
   "initialization_time": date4,
   "nature_code": "xxx",
   "location": {
