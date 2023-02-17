@@ -1,4 +1,4 @@
-class Item {
+export class Item {
   constructor(event) {
     this.event = event;
     this.prev = null;
@@ -6,7 +6,7 @@ class Item {
   }
 }
 
-class LinkedList {
+export class LinkedList {
   constructor(event) {
     this.head = null;
     this.tail = null;
@@ -16,12 +16,22 @@ class LinkedList {
   }
 
   // console.log() all items
-  print() {
+  printAll() {
     let current = this.head;
     while (current !== null) {
       console.log(current);
       current = current.next;
     }
+  }
+
+  returnAll() {
+    let array = [];
+    let current = this.head;
+    while (current !== null) {
+      array.push(current)
+      current = current.next;
+    }
+    return array
   }
 
   // push(event): add new value to end of list.
@@ -65,37 +75,6 @@ class LinkedList {
     return current;
   }
 
-  // gets the (num) of most recent events, sorted
-  getMostRecent(num) {
-    let array = [];
-    let current = this.head;
-    while (current !== null) {
-      if (array.length == 0) {
-        array.push(current);
-      } else {
-        // console.log('  ')
-        // console.log(current.event.initialization_time)
-        // console.log(array[0].event.initialization_time)
-        // console.log('  ')
-        if (current.event.initialization_time < array[0].event.initialization_time) {
-          array.unshift(current.event.initialization_time)
-        }
-      }
-
-
-
-
-
-
-
-
-      // console.log(current);
-      // console.log(current.event.initialization_time);
-      current = current.next;
-    }
-  }
-
-
 }
 
 
@@ -104,10 +83,10 @@ const date2 = "2023-02-12T22:43:14.977Z"
 const date3 = "2023-02-13T22:43:14.977Z"
 const date4 = "2023-02-16T22:42:49.141Z"
 
-console.log(date1 < date2) //true
+// console.log(date1 < date2) //true
 
 
-let list = new LinkedList({
+export let testingData = new LinkedList({
   "indicent_number": "1",
   "initialization_time": date1,
   "nature_code": "xxx",
@@ -119,14 +98,14 @@ let list = new LinkedList({
       "zip": "xxx"
     },
     "point": {
-      "latitude": "000",
-      "longitude": "000"
+      "latitude": "46.798031",
+      "longitude": "-92.150649"
     }
   },
   "outcome_status": "xxx",
   "responders": []
 })
-list.append({
+testingData.append({
   "indicent_number": "2",
   "initialization_time": date2,
   "nature_code": "xxx",
@@ -138,14 +117,14 @@ list.append({
       "zip": "xxx"
     },
     "point": {
-      "latitude": "000",
-      "longitude": "000"
+      "latitude": "46.779225",
+      "longitude": "-92.204929"
     }
   },
   "outcome_status": "xxx",
   "responders": []
 })
-list.append({
+testingData.append({
   "indicent_number": "3",
   "initialization_time": date3,
   "nature_code": "xxx",
@@ -157,14 +136,14 @@ list.append({
       "zip": "xxx"
     },
     "point": {
-      "latitude": "000",
-      "longitude": "000"
+      "latitude": "46.738300",
+      "longitude": "-92.185690"
     }
   },
   "outcome_status": "xxx",
   "responders": []
 })
-list.append({
+testingData.append({
   "indicent_number": "4",
   "initialization_time": date4,
   "nature_code": "xxx",
@@ -176,8 +155,8 @@ list.append({
       "zip": "xxx"
     },
     "point": {
-      "latitude": "000",
-      "longitude": "000"
+      "latitude": "46.825287",
+      "longitude": "-92.035217"
     }
   },
   "outcome_status": "xxx",
@@ -185,7 +164,5 @@ list.append({
 })
 
 
-list.getMostRecent()
-
-
-module.exports = LinkedList;
+// export default LinkedList;
+// module.exports = LinkedList;
