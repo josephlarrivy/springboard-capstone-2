@@ -3,7 +3,7 @@ import './DisplayMap.css'
 
 
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-// import { Icon } from 'leaflet'
+import { Icon } from 'leaflet'
 
 import { Item, LinkedList, testingData } from './linkedList'
 
@@ -25,7 +25,7 @@ const DisplayMap = () => {
 
   if (events == null) {
     return (
-      <h2>loading</h2>
+      null
     )
   } else {
     return (
