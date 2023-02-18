@@ -1,0 +1,15 @@
+nav {
+    background-color: black;
+    margin-top: -1rem;
+}
+
+.nav-item {
+    width: 100px;
+    display: inline;
+    margin: 20px;
+}
+
+nav a {
+    color: #f0f2f5;
+    text-decoration: none;
+}

@@ -5,8 +5,8 @@ const BASE_URL = "http://localhost:3001";
 
 class BackendRequest {
 
-    static async test() {
-        
-    }
+  static async test() {
+
+  }
 
 }
