@@ -25,6 +25,10 @@ const NavBar = () => {
             <NavLink to="/map">Map</NavLink>
           </NavItem>
 
+          <NavItem>
+            <NavLink to="/register">Register</NavLink>
+          </NavItem>
+
         </Nav>
       </Navbar>
     </div>
