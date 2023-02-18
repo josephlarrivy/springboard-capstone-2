@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './DisplayMap.css'
-
+import './css/DisplayMap.css'
 
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import { Icon } from 'leaflet'
@@ -19,7 +18,7 @@ const DisplayMap = () => {
 
   useEffect(() => {
     data = testingData.returnAll();
-    data.map(item => {console.log(item.event.location.point.latitude)})
+    // data.map(item => {console.log(item.event.location.point.latitude)})
     setEvents(data)
   }, [])
 
@@ -29,8 +28,8 @@ const DisplayMap = () => {
     )
   } else {
     return (
-      <MapContainer center={centerPosition} zoom={zoom}>
-        <TileLayer
+      <MapContainer key={'mapContainer'} center={centerPosition} zoom={zoom}>
+        <TileLayer key={'tileLayer'}
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
@@ -39,7 +38,8 @@ const DisplayMap = () => {
           events.map(item => {
             return (
               <Marker
-                key={item.event.indicent_number}
+                // change keys to incident number once real data is set up
+                key={item.event.location.point.latitude}
                 position={[
                   item.event.location.point.latitude,
                   item.event.location.point.longitude
