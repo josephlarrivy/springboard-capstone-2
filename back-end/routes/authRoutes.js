@@ -2,7 +2,7 @@
 const jsonschema = require("jsonschema");
 const User = require('../models/user')
 const { createToken } = require("../helpers/tokens");
-const { privilegeLevelZero } = require("../helpers/verifyPrivilegeLevels");
+const { RequirePrivilegeLevel } = require("../middleware/RequirePrivilegeLevel");
 const newUserSchema = require('../schemas/newUserSchema.json')
 const userLogInSchema = require('../schemas/userLogInSchema.json')
 
@@ -10,8 +10,7 @@ const express = require("express");
 const router = new express.Router();
 
 
-router.get('/test', privilegeLevelZero, (req, res, next) => {
-  
+router.get('/test', RequirePrivilegeLevel.Level(1), (req, res, next) => {
   return res.send({'test1':'test1'})
 })
 
