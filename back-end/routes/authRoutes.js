@@ -10,7 +10,7 @@ const express = require("express");
 const router = new express.Router();
 
 
-router.get('/test', RequirePrivilegeLevel.Level(1), (req, res, next) => {
+router.get('/test', RequirePrivilegeLevel.Level(0), (req, res, next) => {
   return res.send({'test1':'test1'})
 })
 
