@@ -10,11 +10,18 @@ const express = require("express");
 const router = new express.Router();
 
 
-router.get('/test', RequirePrivilegeLevel.Level(0), (req, res, next) => {
-  return res.send({'test1':'test1'})
+// router.get('/test', RequirePrivilegeLevel.Level(0), (req, res, next) => {
+//   return res.send({'test1':'test1'})
+// })
+
+router.get('/test', (req, res, next) => {
+  return res.send({ 'test1': 'test1' })
 })
 
+
+
 router.post("/register", async function (req, res, next) {
+  console.log('hitting route')
   try {
     const validator = jsonschema.validate(req.body, newUserSchema);
     if (!validator.valid) {

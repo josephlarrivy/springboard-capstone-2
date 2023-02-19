@@ -6,16 +6,12 @@ const BASE_URL = "http://localhost:3001";
 
 class BackendApiRequest {
 
-  static async makeRequest(method, endpoint, token, data={}) {
+  static async makeRequest(method, endpoint, token=null, data={}) {
     try {
       const headers = { authorization : `Bearer ${token}` }
-      const resp = await axios({
-        method,
-        url: `${BASE_URL}/${endpoint}`,
-        data,
-        headers
-      });
-      console.log(resp.data);
+      return (
+        await axios({method, url: `${BASE_URL}${endpoint}`, data, headers})
+      );
     } catch (err) {
       // Handle Error Here
       console.error(err);
@@ -24,13 +20,16 @@ class BackendApiRequest {
 
 
   static async test(data) {
-    console.log(data)
+    const resp = await this.makeRequest('get', '/auth/test', null, data)
+    console.log(resp)
   }
 
-  // static async registerNewUser(formData) {
-  //   console.log(formData)
-
-  // }
+  static async registerNewUser(formData) {
+    const data = formData;
+    return (
+      await this.makeRequest('post', '/auth/register', null, data)
+    )
+  }
 
 }
 

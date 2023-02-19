@@ -29,7 +29,8 @@ const RegisterForm = () => {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    // BackendApiRequest.registerNewUser(formData)
+    const request = await BackendApiRequest.registerNewUser(formData)
+    console.log(request.data.token)
     setFormData(INITIAL_STATE)
   }
 
