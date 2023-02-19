@@ -7,19 +7,22 @@ import NavBar from './NavBar';
 import ApplicationRoutes from './ApplicationRoutes';
 import LoadingSpinner from './loader/LoadingSpinner'
 
-
+import TokenContext from './TokenContext';
 
 
 function App() {
 
   const [loading, setLoading] = useState(true)
+  const [token, setToken] = useState(null)
 
   return (
     <div>
-      <BrowserRouter>
-        <NavBar />
-        <ApplicationRoutes />
-      </BrowserRouter>
+      <TokenContext.Provider value={token}>
+        <BrowserRouter>
+          <NavBar />
+          <ApplicationRoutes />
+        </BrowserRouter>
+      </TokenContext.Provider>
     </div>
   );
 }

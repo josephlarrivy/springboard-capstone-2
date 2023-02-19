@@ -6,7 +6,6 @@ const BASE_URL = "http://localhost:3001";
 
 class BackendApiRequest {
 
-
   static async makeRequest(method, endpoint, token, data={}) {
     try {
       const headers = { authorization : `Bearer ${token}` }
@@ -24,11 +23,14 @@ class BackendApiRequest {
   }
 
 
-
-  static async registerNewUser(formData) {
-    console.log(formData)
-
+  static async test(data) {
+    console.log(data)
   }
+
+  // static async registerNewUser(formData) {
+  //   console.log(formData)
+
+  // }
 
 }
 
