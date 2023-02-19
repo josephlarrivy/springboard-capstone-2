@@ -3,6 +3,12 @@ const jsonschema = require("jsonschema");
 const User = require('../models/user')
 const { createToken } = require("../helpers/tokens");
 const { RequirePrivilegeLevel } = require("../middleware/RequirePrivilegeLevel");
+const { ExpressError,
+  NotFoundError,
+  UnauthorizedError,
+  BadRequestError,
+  ForbiddenError } = require('../ExpressError')
+
 const newUserSchema = require('../schemas/newUserSchema.json')
 const userLogInSchema = require('../schemas/userLogInSchema.json')
 
@@ -20,15 +26,15 @@ router.get('/test', (req, res, next) => {
 
 
 
+
+
 router.post("/register", async function (req, res, next) {
-  console.log('hitting route')
   try {
     const validator = jsonschema.validate(req.body, newUserSchema);
     if (!validator.valid) {
       const errs = validator.errors.map(e => e.stack);
       throw new BadRequestError(errs);
     }
-
     const newUser = await User.register({ ...req.body, privilegeLevel: 0 });
     const token = createToken(newUser);
     return res.status(201).json({ token });

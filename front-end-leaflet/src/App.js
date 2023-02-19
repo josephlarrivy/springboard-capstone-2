@@ -20,7 +20,7 @@ function App() {
       <TokenContext.Provider value={token}>
         <BrowserRouter>
           <NavBar />
-          <ApplicationRoutes />
+          <ApplicationRoutes setToken={setToken}/>
         </BrowserRouter>
       </TokenContext.Provider>
     </div>

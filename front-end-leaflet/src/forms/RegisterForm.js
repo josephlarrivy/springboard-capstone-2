@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-
 import BackendApiRequest from "../api";
 
+ 
 
-
-const RegisterForm = () => {
+const RegisterForm = ({setToken}) => {
 
   const INITIAL_STATE = {
     'username': '',
@@ -31,6 +30,7 @@ const RegisterForm = () => {
     evt.preventDefault();
     const request = await BackendApiRequest.registerNewUser(formData)
     console.log(request.data.token)
+    setToken(request.data.token)
     setFormData(INITIAL_STATE)
   }
 

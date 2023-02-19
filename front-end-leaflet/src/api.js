@@ -31,6 +31,13 @@ class BackendApiRequest {
     )
   }
 
+  static async login(formData) {
+    const data = formData;
+    return (
+      await this.makeRequest('post', '/auth/login', null, data)
+    )
+  }
+
 }
 
 export default BackendApiRequest;

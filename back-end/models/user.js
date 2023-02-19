@@ -33,6 +33,7 @@ class User {
     return user;
   }
 
+  
   static async authenticate(username, password) {
     const result = await db.query(
       `SELECT username, password, firstname AS "firstName", lastname AS "lastName", email, privilegelevel AS "privilegeLevel"
