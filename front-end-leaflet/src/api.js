@@ -38,6 +38,14 @@ class BackendApiRequest {
     )
   }
 
+  static decodeToken(token) {
+    try {
+      return jwt_decode(token)
+    } catch {
+      return 'invalid'
+    }
+  }
+
 }
 
 export default BackendApiRequest;
