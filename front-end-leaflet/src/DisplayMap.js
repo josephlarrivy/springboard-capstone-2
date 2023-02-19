@@ -8,7 +8,6 @@ import { Item, LinkedList, testingData } from './linkedList'
 
 
 
-
 const DisplayMap = () => {
   let data;
 
