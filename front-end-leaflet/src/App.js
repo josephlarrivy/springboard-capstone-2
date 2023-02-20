@@ -13,14 +13,14 @@ import TokenContext from './TokenContext';
 function App() {
 
   const [loading, setLoading] = useState(true)
-  const [token, setToken] = useState(null)
+  const [contextToken, setContextToken] = useState(null)
 
   return (
     <div>
-      <TokenContext.Provider value={token}>
+      <TokenContext.Provider value={contextToken}>
         <BrowserRouter>
           <NavBar />
-          <ApplicationRoutes setToken={setToken}/>
+          <ApplicationRoutes setContextToken={setContextToken}/>
         </BrowserRouter>
       </TokenContext.Provider>
     </div>

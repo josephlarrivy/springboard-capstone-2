@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 import BackendApiRequest from "../api";
+import useLocalStorage from "../hooks/useLocalStorage";
 
  
 
-const RegisterForm = ({setToken}) => {
+const RegisterForm = ({setContextToken}) => {
+
+  const [localStoreToken, localRemoveToken, localRetrieveToken, localVerifyToken] = useLocalStorage()
 
   const INITIAL_STATE = {
     'username': '',
@@ -29,8 +32,9 @@ const RegisterForm = ({setToken}) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const request = await BackendApiRequest.registerNewUser(formData)
-    console.log(request.data.token)
-    setToken(request.data.token)
+    const token = request.data.token
+    setContextToken(token)
+    localStoreToken(token)
     setFormData(INITIAL_STATE)
   }
 

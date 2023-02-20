@@ -8,7 +8,7 @@ import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
 
 
-const ApplicationRoutes = ({setToken}) => {
+const ApplicationRoutes = ({setContextToken}) => {
 
   return (
     <div>
@@ -16,9 +16,9 @@ const ApplicationRoutes = ({setToken}) => {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/map" element={<DisplayMap /> } />
           <Route exact path="/register"
-            element={<RegisterForm setToken={setToken}/>} />
+          element={<RegisterForm setContextToken={setContextToken}/>} />
         <Route exact path="/login"
-          element={<LoginForm setToken={setToken} />} />
+          element={<LoginForm setContextToken={setContextToken} />} />
         </Routes>
     </div>
   )
