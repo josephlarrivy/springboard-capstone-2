@@ -11,20 +11,23 @@ const useLocalStorage = () => {
   }
 
   const localRetrieveToken = () => {
-    return localStorage.getItem('token')
+    const token = localStorage.getItem('token')
+    return token
   }
 
-  const localVerifyToken = async () => {
+  const localDecodeToken = async () => {
     const storedToken = localStorage.getItem('token')
     const decodedToken = await BackendApiRequest.decodeToken(storedToken)
     if (decodedToken == 'invalid') {
+      console.log('invalid')
       return null;
     } else {
+      console.log(decodedToken)
       return decodedToken;
     }
   }
 
-  return [localStoreToken, localRemoveToken, localRetrieveToken, localVerifyToken];
+  return [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken];
 };
 
 export default useLocalStorage;

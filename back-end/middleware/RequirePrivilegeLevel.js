@@ -9,13 +9,13 @@ const { UnauthorizedError } = require("../ExpressError");
 
 
 class RequirePrivilegeLevel {
-  static Level(num) {
+  static Level(type) {
     return async (req, res, next) => {
       try {
         const authHeader = req.headers && req.headers.authorization;
         const token = authHeader.replace(/^[Bb]earer /, "").trim();
         const verifiedToken = jwt.verify(token, SECRET_KEY)
-        if (verifiedToken.privilegeLevel >= num) {
+        if (verifiedToken.privilegeLevel == type) {
           return next()
         } else {
           const e = new UnauthorizedError()

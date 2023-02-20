@@ -9,21 +9,21 @@ const Home = () => {
 
   const token = useContext(TokenContext);
 
-  const [localStoreToken, localRemoveToken, localRetrieveToken, localVerifyToken] = useLocalStorage()
+  const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
 
   const handleClick = () => {
     console.log(token);
     localStoreToken(token)
   }
 
-  const handleClick2 = () => {
-    const getTokenFromLocalStorage = localRetrieveToken()
+  const handleClick2 = async () => {
+    const getTokenFromLocalStorage = await localDecodeToken()
     console.log(getTokenFromLocalStorage)
   }
 
   const handleClick3 = () => {
     localRemoveToken()
-    const getTokenFromLocalStorage = localRetrieveToken()
+    const getTokenFromLocalStorage = localRemoveToken()
     console.log(getTokenFromLocalStorage)
   }
 

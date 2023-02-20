@@ -40,7 +40,10 @@ class BackendApiRequest {
 
   static decodeToken(token) {
     try {
-      return jwt_decode(token)
+      const decodedToken = jwt_decode(token)
+      console.log(decodedToken)
+      console.log(jwt_decode)
+      return decodedToken
     } catch {
       return 'invalid'
     }

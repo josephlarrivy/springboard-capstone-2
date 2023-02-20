@@ -27,13 +27,13 @@ class User {
            (username, password, firstname, lastname, email, privilegeLevel)
            VALUES ($1, $2, $3, $4, $5, $6)
            RETURNING username, firstname AS "firstName", lastname AS "lastName", email, privilegelevel AS "privilegeLevel"`,
-      [ username, hashedPassword, firstName, lastName, email, 0 ],
+      [ username, hashedPassword, firstName, lastName, email, 'basic' ],
     );
     const user = result.rows[0];
     return user;
   }
 
-  
+
   static async authenticate(username, password) {
     const result = await db.query(
       `SELECT username, password, firstname AS "firstName", lastname AS "lastName", email, privilegelevel AS "privilegeLevel"

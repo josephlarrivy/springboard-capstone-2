@@ -7,7 +7,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 const LoginForm = ({ setContextToken }) => {
 
-    const [localStoreToken, localRemoveToken, localRetrieveToken, localVerifyToken] = useLocalStorage()
+    const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeTokenn] = useLocalStorage()
 
     const INITIAL_STATE = {
         'username': '',

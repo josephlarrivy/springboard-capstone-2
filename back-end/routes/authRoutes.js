@@ -16,15 +16,16 @@ const express = require("express");
 const router = new express.Router();
 
 
-// router.get('/test', RequirePrivilegeLevel.Level(0), (req, res, next) => {
-//   return res.send({'test1':'test1'})
-// })
-
-router.get('/test', (req, res, next) => {
-  return res.send({ 'test1': 'test1' })
+router.get('/test', RequirePrivilegeLevel.Level('basic'), (req, res, next) => {
+  return res.send({'test1':'test1'})
 })
 
 
+
+
+// router.get('/test', (req, res, next) => {
+//   return res.send({ 'test1': 'test1' })
+// })
 
 
 
@@ -35,7 +36,8 @@ router.post("/register", async function (req, res, next) {
       const errs = validator.errors.map(e => e.stack);
       throw new BadRequestError(errs);
     }
-    const newUser = await User.register({ ...req.body, privilegeLevel: 0 });
+    const newUser = await User.register({ ...req.body, privilegeLevel: 'basic' });
+    console.log(newUser)
     const token = createToken(newUser);
     return res.status(201).json({ token });
   } catch (err) {
