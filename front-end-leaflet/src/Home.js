@@ -13,7 +13,7 @@ const Home = () => {
 
   const handleClick = () => {
     console.log(token);
-    localStoreToken(token)
+    // localStoreToken(token)
   }
 
   const handleClick2 = async () => {

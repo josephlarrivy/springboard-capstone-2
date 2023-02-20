@@ -7,13 +7,23 @@ import NavBar from './NavBar';
 import ApplicationRoutes from './ApplicationRoutes';
 import LoadingSpinner from './loader/LoadingSpinner'
 
+import useLocalStorage from './hooks/useLocalStorage';
 import TokenContext from './TokenContext';
 
 
 function App() {
 
   const [loading, setLoading] = useState(true)
+  const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
   const [contextToken, setContextToken] = useState(null)
+
+
+  useEffect(() => {
+    const token = localRetrieveToken()
+    setContextToken(token)
+  }, [])
+
+
 
   return (
     <div>

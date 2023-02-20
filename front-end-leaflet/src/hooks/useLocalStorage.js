@@ -19,10 +19,8 @@ const useLocalStorage = () => {
     const storedToken = localStorage.getItem('token')
     const decodedToken = await BackendApiRequest.decodeToken(storedToken)
     if (decodedToken == 'invalid') {
-      console.log('invalid')
       return null;
     } else {
-      console.log(decodedToken)
       return decodedToken;
     }
   }
