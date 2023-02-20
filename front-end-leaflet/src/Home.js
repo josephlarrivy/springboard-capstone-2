@@ -11,26 +11,22 @@ const Home = () => {
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
 
-  const handleClick = () => {
-    console.log(token);
-    // localStoreToken(token)
+  const handleClick1 = () => {
+    console.log('click1')
   }
 
   const handleClick2 = async () => {
-    const getTokenFromLocalStorage = await localDecodeToken()
-    console.log(getTokenFromLocalStorage)
+    console.log('click2')
   }
 
   const handleClick3 = () => {
-    localRemoveToken()
-    const getTokenFromLocalStorage = localRemoveToken()
-    console.log(getTokenFromLocalStorage)
+    console.log('click3')
   }
 
   return (
     <div>
       <h1>Home</h1>
-      <button onClick={handleClick}>test</button>
+      <button onClick={handleClick1}>test</button>
       <button onClick={handleClick2}>test2</button>
       <button onClick={handleClick3}>test3</button>
     </div>

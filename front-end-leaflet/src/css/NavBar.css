@@ -18,3 +18,8 @@ nav a.active {
     color: white;
     text-decoration: none;
 }
+
+#nav-logout {
+    color: gray;
+    text-decoration: none;
+}
