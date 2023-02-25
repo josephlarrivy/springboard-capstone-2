@@ -5,3 +5,7 @@
     margin-left: 2vw;
     width: 65vw;
 }
+
+.searchbar {
+    opacity: 0;
+}
