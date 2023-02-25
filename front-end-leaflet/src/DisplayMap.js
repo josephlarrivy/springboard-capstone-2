@@ -12,7 +12,7 @@ const DisplayMap = () => {
   let data;
 
   const [centerPosition, setCenterPosition] = useState([46.78, -92.10])
-  const [zoom, setZoom] = useState(10)
+  const [zoom, setZoom] = useState(6)
   const [events, setEvents] = useState(null)
 
   useEffect(() => {

@@ -13,6 +13,8 @@ const Home = () => {
 
   const handleClick1 = () => {
     console.log('click1')
+    let token = localRetrieveToken()
+    console.log(token)
   }
 
   const handleClick2 = async () => {
@@ -21,6 +23,7 @@ const Home = () => {
 
   const handleClick3 = () => {
     console.log('click3')
+    localRemoveToken()
   }
 
   return (
