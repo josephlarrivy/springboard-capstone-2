@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './css/DisplayMap.css'
 
-import { MapContainer, Marker, Popup, TileLayer, Map } from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from 'react-leaflet'
 import { Icon, L, map } from 'leaflet'
 import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch'
 
@@ -27,9 +27,17 @@ const DisplayMap = () => {
   
 
   useEffect(() => {
-    
     setLocations(testingData)
   }, [])
+
+  const LocationFinderDummy = () => {
+    const map = useMapEvents({
+      click(e) {
+        console.log(e.latlng);
+      },
+    });
+    return null;
+  };
 
   
 
@@ -40,7 +48,11 @@ const DisplayMap = () => {
   } else {
     return (
       <div>
-        <MapContainer key={'mapContainer'} center={centerPosition} zoom={zoom}>
+        <MapContainer
+          key={'mapContainer'}
+          center={centerPosition}
+          zoom={zoom}
+          >
           <TileLayer key={'tileLayer'}
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -60,6 +72,7 @@ const DisplayMap = () => {
               )
             })
           }
+          <LocationFinderDummy />
         </MapContainer>
         <button onClick={testingGetData}>test</button>
       </div>

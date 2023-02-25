@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-import useGetLatLon from "../hooks/useGetLatLon";
 
 
 const ChooseSenarioForm = ({setStartLocation, setGameState}) => {
@@ -13,7 +12,6 @@ const ChooseSenarioForm = ({setStartLocation, setGameState}) => {
     const [formData, setFormData] = useState(INITIAL_STATE)
     const navigate = useNavigate();
 
-    const [requestLatLon] = useGetLatLon()
 
     const handleChange = evt => {
         const { name, value } = evt.target;
@@ -25,8 +23,6 @@ const ChooseSenarioForm = ({setStartLocation, setGameState}) => {
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        const req = await requestLatLon(evt.target.value)
-        console.log(req)
         setFormData(INITIAL_STATE)
     }
 
