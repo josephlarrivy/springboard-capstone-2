@@ -34,7 +34,7 @@ const NavBar = () => {
           </NavItem>
 
           <NavItem>
-            <NavLink to="/map2">Map 2</NavLink>
+            <NavLink to="/play">Play</NavLink>
           </NavItem>
 
           <NavItem>

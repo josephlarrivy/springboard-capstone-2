@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
+import tomtomKey from '../keys';
 
 const useGetLatLon = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
   const [loaded, setLoaded] = useState(false);
 
-  const requestLatLon = async () => {
+  const requestLatLon = async (address) => {
     
-        let key = 'Vkb4D1xfFHcSg5H4fEhkmWgcOFNOGyPm'
-        let address = 'De Ruijterkade 154, 1011 AC, Amsterdam'
+        let key = tomtomKey
+        // let address = 'De Ruijterkade 154, 1011 AC, Amsterdam'
         try {
           const response = await axios.get(
             `https://api.tomtom.com/search/2/geocode/${address}.json?key=${key}`

@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
+import useGetLatLon from "../hooks/useGetLatLon";
 
 
-const ChooseSenarioForm = () => {
+const ChooseSenarioForm = ({setStartLocation, setGameState}) => {
 
     const INITIAL_STATE = {
-        'username': '',
-        'password': '',
+        'location': '',
     }
 
     const [formData, setFormData] = useState(INITIAL_STATE)
     const navigate = useNavigate();
+
+    const [requestLatLon] = useGetLatLon()
 
     const handleChange = evt => {
         const { name, value } = evt.target;
@@ -23,10 +25,8 @@ const ChooseSenarioForm = () => {
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        const request = await BackendApiRequest.login(formData)
-        const token = request.data.token
-        setContextToken(token)
-        localStoreToken(token)
+        const req = await requestLatLon(evt.target.value)
+        console.log(req)
         setFormData(INITIAL_STATE)
     }
 
@@ -34,26 +34,14 @@ const ChooseSenarioForm = () => {
     return (
         <form onSubmit={handleSubmit}>
 
-            <label htmlFor="username" className="col-md-6">username: </label>
+            <label htmlFor="location" className="col-md-6">Search For a Starting Location: </label>
             <input
                 required
-                id={formData.username}
+                id={formData.location}
                 type="text"
-                name="username"
-                placeholder="username"
-                value={formData.username}
-                onChange={handleChange}
-                className="col-md-6"
-            /><br></br><br></br>
-
-            <label htmlFor="password" className="col-md-6">password: </label>
-            <input
-                required
-                id={formData.password}
-                type="text"
-                name="password"
-                placeholder="password"
-                value={formData.password}
+                name="location"
+                placeholder="location"
+                value={formData.location}
                 onChange={handleChange}
                 className="col-md-6"
             /><br></br><br></br>
