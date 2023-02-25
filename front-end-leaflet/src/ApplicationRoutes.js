@@ -5,7 +5,7 @@ import Home from "./Home";
 import DisplayMap from './DisplayMap';
 import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
-
+// import NewDisplayMap from "./NewDisplayMap";
 
 const ApplicationRoutes = ({setContextToken}) => {
 
@@ -15,6 +15,7 @@ const ApplicationRoutes = ({setContextToken}) => {
           
           <Route exact path="/" element={<Home />} />
           <Route exact path="/map" element={<DisplayMap /> } />
+          {/* <Route exact path="/map2" element={<NewDisplayMap />} /> */}
           <Route exact path="/register"
             element={<RegisterForm setContextToken={setContextToken}/>} />
           <Route exact path="/login"

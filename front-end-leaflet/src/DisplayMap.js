@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import './css/DisplayMap.css'
 
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import { Icon } from 'leaflet'
+import { Icon, L, map } from 'leaflet'
 
-import { Item, LinkedList, testingData } from './linkedList'
-
+// import { Item, LinkedList, testingData } from './linkedList'
+// const testingData = require('../src/testing-data.js')
+import testingData from './testing-data.js'
+import useGenerateNewLocation from './hooks/useGenerateNewLocation'
 
 
 const DisplayMap = () => {
@@ -13,15 +15,17 @@ const DisplayMap = () => {
 
   const [centerPosition, setCenterPosition] = useState([46.78, -92.10])
   const [zoom, setZoom] = useState(6)
-  const [events, setEvents] = useState(null)
+  const [locations, setLocations] = useState(null)
+
+  const [generateIncident] = useGenerateNewLocation()
 
   useEffect(() => {
-    data = testingData.returnAll();
-    // data.map(item => {console.log(item.event.location.point.latitude)})
-    setEvents(data)
+    setLocations(testingData)
+    var map = L
+    console.log(L)
   }, [])
 
-  if (events == null) {
+  if (locations == null) {
     return (
       null
     )
@@ -34,14 +38,14 @@ const DisplayMap = () => {
         />
         
         {
-          events.map(item => {
+          locations.map(item => {
             return (
               <Marker
                 // change keys to incident number once real data is set up
-                key={item.event.location.point.latitude}
+                key={item.location.point.latitude}
                 position={[
-                  item.event.location.point.latitude,
-                  item.event.location.point.longitude
+                  item.location.point.latitude,
+                  item.location.point.longitude
                 ]}
               />
             )
