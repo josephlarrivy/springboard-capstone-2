@@ -1,0 +1,17 @@
+.choose-start-location-instructions {
+  position: absolute;
+  z-index: 2 !important;
+  margin-top: 8vh;
+  margin-left: 8vw;
+  height: 68vh;
+  width: 48vw;
+  border-radius: 3vh;
+  padding: 5vh;
+
+  background-color: white;
+  text-align: center;
+}
+
+.choose-start-location-map {
+  z-index: 1;
+}

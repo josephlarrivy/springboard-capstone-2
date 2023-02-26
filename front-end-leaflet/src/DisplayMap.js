@@ -7,7 +7,6 @@ import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch'
 
 import testingData from './testing-data.js'
 import useGenerateNewLocation from './hooks/useGenerateNewLocation'
-import useGetLatLon from './hooks/useGetLatLon'
 
 const DisplayMap = () => {
   let data;
@@ -16,12 +15,10 @@ const DisplayMap = () => {
   const [zoom, setZoom] = useState(6)
   const [locations, setLocations] = useState(null)
 
-  const [requestLatLon] = useGetLatLon()
   const [generateIncident] = useGenerateNewLocation()
 
 
   const testingGetData = async () => {
-    let test = await requestLatLon()
     console.log(test)
   }
   
@@ -30,7 +27,7 @@ const DisplayMap = () => {
     setLocations(testingData)
   }, [])
 
-  const LocationFinderDummy = () => {
+  const LocationFinder = () => {
     const map = useMapEvents({
       click(e) {
         console.log(e.latlng);
@@ -72,7 +69,7 @@ const DisplayMap = () => {
               )
             })
           }
-          <LocationFinderDummy />
+          <LocationFinder />
         </MapContainer>
         <button onClick={testingGetData}>test</button>
       </div>
