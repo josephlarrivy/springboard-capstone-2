@@ -4,6 +4,8 @@ import './css/PlayContainer.css'
 
 import DisplayMap from "./DisplayMap";
 import ChooseSenarioForm from "./forms/ChooseStartLocationForm";
+import useGenerateNewLocation from './hooks/useGenerateNewLocation'
+
 
 
 
@@ -12,6 +14,9 @@ const PlayContainer = () => {
 
   const [gameState, setGameState] = useState('chooseLocation')
   const [startLocation, setStartLocation] = useState(null)
+  const [locations, setLocations] = useState(null)
+  const [generateIncident] = useGenerateNewLocation()
+  const [zoom, setZoom] = useState(10)
 
 
 
@@ -21,10 +26,10 @@ const PlayContainer = () => {
         <ChooseSenarioForm setStartLocation={setStartLocation} setGameState={setGameState}/>
       </div>
     )
-  } else if (gameState === 'play') {
+  } else if (gameState === 'levelOne') {
     return (
       <div className="play-container">
-        <DisplayMap />
+        <DisplayMap startLocation={startLocation} zoom={zoom}/>
       </div>
     )
   }

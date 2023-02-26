@@ -17,9 +17,9 @@ const ChooseStartLocationForm = ({setStartLocation, setGameState}) => {
   const LocationFinder = () => {
     const map = useMapEvents({
       click(e) {
-        console.log(e.latlng);
-        setStartLocation(e.latlng)
-        setGameState('play')
+        let {lat,lng} = e.latlng
+        setStartLocation([lat, lng])
+        setGameState('levelOne')
       },
     });
     return null;
@@ -28,8 +28,6 @@ const ChooseStartLocationForm = ({setStartLocation, setGameState}) => {
   const turnInstructionsOff = () => {
     setInstructions('off')
   }
-
-
 
 
   if (instructions === 'on') {

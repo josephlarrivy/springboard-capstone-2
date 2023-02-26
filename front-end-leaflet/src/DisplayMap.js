@@ -6,25 +6,14 @@ import { Icon, L, map } from 'leaflet'
 import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch'
 
 import testingData from './testing-data.js'
-import useGenerateNewLocation from './hooks/useGenerateNewLocation'
 
-const DisplayMap = () => {
+const DisplayMap = ({ startLocation, zoom }) => {
   let data;
 
-  const [centerPosition, setCenterPosition] = useState([46.78, -92.10])
-  const [zoom, setZoom] = useState(6)
-  const [locations, setLocations] = useState(null)
-
-  const [generateIncident] = useGenerateNewLocation()
-
-
-  const testingGetData = async () => {
-    console.log(test)
-  }
+  const [centerPosition, setCenterPosition] = useState(null)
   
-
   useEffect(() => {
-    setLocations(testingData)
+    setCenterPosition(startLocation)
   }, [])
 
   const LocationFinder = () => {
@@ -36,45 +25,44 @@ const DisplayMap = () => {
     return null;
   };
 
-  
-
-  if (locations == null) {
+  if (centerPosition === null) {
     return (
-      null
+      <>
+        <h1>test</h1>
+      </>
     )
-  } else {
-    return (
-      <div>
-        <MapContainer
-          key={'mapContainer'}
-          center={centerPosition}
-          zoom={zoom}
-          >
-          <TileLayer key={'tileLayer'}
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          
-          {
-            locations.map(item => {
-              return (
-                <Marker
-                  // change keys to incident number once real data is set up
-                  key={item.location.point.latitude}
-                  position={[
-                    item.location.point.latitude,
-                    item.location.point.longitude
-                  ]}
-                />
-              )
-            })
-          }
-          <LocationFinder />
-        </MapContainer>
-        <button onClick={testingGetData}>test</button>
-      </div>
-    );
   }
+
+  return (
+    <div>
+      <MapContainer
+        key={'mapContainer'}
+        center={centerPosition}
+        zoom={zoom}
+        >
+        <TileLayer key={'tileLayer'}
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        
+        {/* {
+          locations.map(item => {
+            return (
+              <Marker
+                // change keys to incident number once real data is set up
+                key={item.location.point.latitude}
+                position={[
+                  item.location.point.latitude,
+                  item.location.point.longitude
+                ]}
+              />
+            )
+          })
+        } */}
+        <LocationFinder />
+      </MapContainer>
+    </div>
+  );
 
   
 }
