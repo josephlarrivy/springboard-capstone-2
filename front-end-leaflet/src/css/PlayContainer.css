@@ -4,4 +4,6 @@
     height: 92vh;
     margin-left: 2vw;
     width: 65vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }

@@ -12,14 +12,14 @@ const ChooseStartLocationForm = ({setStartLocation, setGameState}) => {
   const [zoom, setZoom] = useState(2)
   const [instructions, setInstructions] = useState('on')
 
-  const navigate = useNavigate();
 
   const LocationFinder = () => {
     const map = useMapEvents({
       click(e) {
-        let {lat,lng} = e.latlng
-        setStartLocation([lat, lng])
-        setGameState('levelOne')
+        let {lat,lng} = e.latlng;
+        let latLonArr = [lat, lng];
+        setStartLocation(latLonArr)
+        setGameState('tutorialPhase')
       },
     });
     return null;

@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import './css/PlayContainer.css'
 
 import DisplayMap from "./DisplayMap";
-import ChooseSenarioForm from "./forms/ChooseStartLocationForm";
+import ChooseSenarioForm from "./phase-components/ChooseStartLocationForm";
 import useGenerateNewLocation from './hooks/useGenerateNewLocation'
-
+import TutorialPhase from "./phase-components/TutorialPhase";
 
 
 
@@ -14,10 +14,14 @@ const PlayContainer = () => {
 
   const [gameState, setGameState] = useState('chooseLocation')
   const [startLocation, setStartLocation] = useState(null)
-  const [locations, setLocations] = useState(null)
+  const [baseLocation, setBaseLocation] = useState(null)
+  const [incidents, setIncidents] = useState(null)
   const [generateIncident] = useGenerateNewLocation()
-  const [zoom, setZoom] = useState(10)
+  const [zoom, setZoom] = useState(11)
 
+  useEffect(() => {
+    console.log(gameState)
+  })
 
 
   if (gameState === 'chooseLocation') {
@@ -26,10 +30,10 @@ const PlayContainer = () => {
         <ChooseSenarioForm setStartLocation={setStartLocation} setGameState={setGameState}/>
       </div>
     )
-  } else if (gameState === 'levelOne') {
+  } else if (gameState === 'tutorialPhase') {
     return (
       <div className="play-container">
-        <DisplayMap startLocation={startLocation} zoom={zoom}/>
+        <TutorialPhase startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation}/>
       </div>
     )
   }

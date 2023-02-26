@@ -5,10 +5,8 @@ import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from 'react-leaf
 import { Icon, L, map } from 'leaflet'
 import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch'
 
-import testingData from './testing-data.js'
 
-const DisplayMap = ({ startLocation, zoom }) => {
-  let data;
+const DisplayMap = ({ startLocation, zoom, mapClick}) => {
 
   const [centerPosition, setCenterPosition] = useState(null)
   
@@ -19,7 +17,10 @@ const DisplayMap = ({ startLocation, zoom }) => {
   const LocationFinder = () => {
     const map = useMapEvents({
       click(e) {
-        console.log(e.latlng);
+        let { lat, lng } = e.latlng;
+        let latLonArr = [lat, lng];
+        // console.log(latLonArr);
+        mapClick(latLonArr)
       },
     });
     return null;
@@ -46,7 +47,7 @@ const DisplayMap = ({ startLocation, zoom }) => {
         />
         
         {/* {
-          locations.map(item => {
+          incidents.map(item => {
             return (
               <Marker
                 // change keys to incident number once real data is set up
