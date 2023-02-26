@@ -21,6 +21,7 @@ const PlayContainer = () => {
 
   useEffect(() => {
     console.log(gameState)
+    console.log(baseLocation)
   })
 
 

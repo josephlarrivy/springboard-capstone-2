@@ -27,11 +27,10 @@ const TutorialPhase = ({ startLocation, zoom, setGameState, baseLocation, setBas
     return (
       <div>
         <div className="alert-card">
-          <h4>Choose a base location.</h4>
-          <button>test</button>
+          <h4>Click on the map to choose a base location.</h4>
         </div>
         <div className="display-map">
-          <DisplayMap startLocation={startLocation} zoom={zoom} mapClick={mapClick}/>
+          <DisplayMap startLocation={startLocation} zoom={zoom} mapClick={mapClick} baseLocation={baseLocation}/>
         </div>
       </div>
     )
