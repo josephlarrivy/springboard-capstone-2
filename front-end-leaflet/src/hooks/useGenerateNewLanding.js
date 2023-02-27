@@ -36,10 +36,6 @@ const useGenerateNewLanding = () => {
     return newShipObject;
   }
 
-
-
-  
-
   return [generateLanding]
 }
 

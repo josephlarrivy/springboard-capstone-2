@@ -27,12 +27,11 @@ const TutorialPhase = ({ startLocation, setStartLocation, zoom, setGameState, ba
         text: null,
         button: 'Confirm'
       })
-      setAlertCardButtonFunction(() => alertCardButtonCallback1)
+      setAlertCardButtonFunction(alertCardButtonCallback1)
     }
   }
 
   const alertCardButtonCallback1 = () => {
-    // setStartLocation(baseLocation)
     setGameState('levelOne')
   }
 

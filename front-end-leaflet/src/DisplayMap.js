@@ -57,6 +57,7 @@ const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation, landings}) =>
           icon={homeIcon}
           />}
           
+          
         
         {landings && 
           landings.map(landing => {

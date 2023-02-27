@@ -4,14 +4,22 @@ import '../css/LevelOne.css'
 import DisplayMap from "../DisplayMap";
 import AlertCard from "../AlertCard";
 
+import useGenerateNewLanding from '../hooks/useGenerateNewLanding.js'
 
-const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNewIncident, landings, setLandings, addNewLanding }) => {
+const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
 
   const [subphase, setSubphase] = useState('levelOne-1')
   const [alertCardInfo, setAlertCardInfo] = useState('')
   const [alertCardButtonFunction, setAlertCardButtonFunction] = useState(false)
-  const [rerender, setRerender] = useState(false);
+  const [landings, setLandings] = useState()
+  const [generateLanding] = useGenerateNewLanding()
 
+
+
+
+
+
+  
   useEffect(() => {
     console.log('reload')
     setAlertCardInfo({
@@ -23,7 +31,28 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNew
   }, [])
 
 
-  
+
+
+
+
+
+
+
+
+  const addNewLanding = () => {
+    const newLanding = generateLanding(startLocation, 1)
+    if (landings == null) {
+      setLandings([newLanding])
+    } else {
+      let landingsArr = [];
+      landings.map(l => {
+        landingsArr.push(l)
+      });
+      landingsArr.push(newLanding);
+      setLandings(landingsArr)
+    }
+    console.log(landings)
+  }
 
   const alertCardButtonCallback1 = () => {
     setSubphase('levelOne-2')
@@ -40,9 +69,6 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNew
     //   setAlertCardButtonFunction(() => alertCardButtonCallback1)
     // }
   }
-
-
-
 
 
   return (

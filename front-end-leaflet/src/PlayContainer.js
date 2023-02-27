@@ -11,7 +11,7 @@ import LevelOne from "./phase-components/LevelOne";
 
 
 
-const PlayContainer = ({landings, setLandings}) => {
+const PlayContainer = () => {
 
   const [gameState, setGameState] = useState('chooseLocation')
   const [startLocation, setStartLocation] = useState(null)
@@ -22,22 +22,10 @@ const PlayContainer = ({landings, setLandings}) => {
   useEffect(() => {
     // console.log('PlayContainer Reload')
     // console.log(gameState)
-    // console.log(baseLocation)
-    console.log(landings)
-  }, [generateLanding])
+    console.log(baseLocation)
+  }, [])
 
-  const addNewLanding = () => {
-    let newLanding = generateLanding(baseLocation, 1)
-    console.log(newLanding)
-    console.log(landings)
-
-    if (landings === undefined) {
-      setLandings('test')
-    }
-    
-
-
-  }
+  
 
 
   if (gameState === 'chooseLocation') {
@@ -58,7 +46,7 @@ const PlayContainer = ({landings, setLandings}) => {
     // console.log('levelOne')
     return (
       <div className="play-container">
-        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} landings={landings} setLandings={setLandings} addNewLanding={addNewLanding}/>
+        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation}/>
       </div>
     )
   }

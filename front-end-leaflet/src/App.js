@@ -9,7 +9,6 @@ import LoadingSpinner from './loader/LoadingSpinner'
 
 import useLocalStorage from './hooks/useLocalStorage';
 import TokenContext from './TokenContext';
-import LandingsContext from './LandingsContext.js'
 
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
   const [contextToken, setContextToken] = useState(null)
 
-  const [landings, setLandings] = useState([])
 
 
   useEffect(() => {
@@ -31,12 +29,10 @@ function App() {
   return (
     <div>
       <TokenContext.Provider value={contextToken}>
-        <LandingsContext.Provider value={landings}>
           <BrowserRouter>
             <NavBar />
-            <ApplicationRoutes setContextToken={setContextToken} setLandings={setLandings}/>
+            <ApplicationRoutes setContextToken={setContextToken} />
           </BrowserRouter>
-        </LandingsContext.Provider>
       </TokenContext.Provider>
     </div>
   );
