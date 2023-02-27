@@ -18,58 +18,71 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
   useEffect(() => {
     console.log('reload')
     setSubphase('levelOne-1')
-    // setAlertCardButtonFunction(() => alertCardButtonCallback1)
+    setAlertCardButtonFunction(alertCardButtonCallback2)
   }, [])
 
   const mapClick = (clickLocation) => {
-    // if (subphase === 'pickBaseLocation') {
-    //   setAlertCardInfo({ heading: 'Confirm base location?', text: null })
-    //   setAlertCardButtonFunction(() => alertCardButtonCallback1)
-    // }
+    if (subphase === 'pickBaseLocation') {
+      setAlertCardInfo({ heading: 'Confirm base location?', text: null })
+      setAlertCardButtonFunction(() => alertCardButtonCallback2)
+    }
     console.log('checkpoint 1')
   }
 
 
   const addNewLanding = () => {
-    // const newLanding = generateLanding(startLocation, 1)
-    // if (landings == null) {
-    //   setLandings([newLanding])
-    // } else {
-    //   let landingsArr = [];
-    //   landings.map(l => {
-    //     landingsArr.push(l)
-    //   });
-    //   landingsArr.push(newLanding);
-    //   setLandings(landingsArr)
-    // }
-    // console.log(landings)
+    const newLanding = generateLanding(startLocation, 1)
+    if (landings == null) {
+      setLandings([newLanding])
+    } else {
+      let landingsArr = [];
+      landings.map(l => {
+        landingsArr.push(l)
+      });
+      landingsArr.push(newLanding);
+      setLandings(landingsArr)
+    }
+    console.log(landings)
     console.log('checkpoint 2')
   }
 
-  const alertCardButtonCallback1 = () => {
-    // setSubphase('levelOne-2')
-    // addNewLanding()
+  const alertCardButtonCallback2 = () => {
+    addNewLanding()
     console.log('checkpoint 3')
-  }
-
-
-
-
-  if (subphase === 'levelOne-1') {
     setAlertCardInfo({
       heading: 'UFO Sighting',
       text: 'An unidentified flying object has been spotted in the skies above.',
       button: 'Next'
     })
-    setAlertCardButtonFunction(() => console.log('test'))
-  } else if (subphase === 'levelOne-2') {
+    setAlertCardButtonFunction(() => alertCardButtonCallback3)
+  }
+
+  const alertCardButtonCallback3 = () => {
+    addNewLanding()
+    console.log('checkpoint 4')
     setAlertCardInfo({
-      heading: 'test',
+      heading: 'TEST',
       text: 'test',
       button: 'test'
     })
-    setAlertCardButtonFunction(() => console.log('test2'))
+    setAlertCardButtonFunction(() => alertCardButtonCallback3)
   }
+
+
+
+
+  // if (subphase === 'levelOne-1') {
+  //   
+    // setAlertCardButtonFunction(alertCardButtonCallback2)
+  // } 
+  // else if (subphase === 'levelOne-2') {
+  //   setAlertCardInfo({
+  //     heading: 'test',
+  //     text: 'test',
+  //     button: 'test'
+  //   })
+  //   setAlertCardButtonFunction(() => console.log('test2'))
+  // }
 
 
 

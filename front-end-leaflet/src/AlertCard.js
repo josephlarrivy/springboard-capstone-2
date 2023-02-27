@@ -7,6 +7,7 @@ import './css/AlertCard.css'
 const AlertCard = ({ alertCardInfo, alertCardButtonFunction }) => {
   let { heading, text, button } = alertCardInfo;
 
+
   return (
     <div className='alert-card'>
       <p><b>{heading}</b></p>
