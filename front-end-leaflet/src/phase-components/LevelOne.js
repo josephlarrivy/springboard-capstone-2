@@ -30,15 +30,18 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNew
     // }
   }
 
+
+
   const alertCardButtonCallback1 = () => {
     setSubphase('levelOne-2')
     let newLanding = generateLanding(baseLocation, 1)
-    if (landings === null) {
+    if (!landings) {
       setLandings([newLanding])
     } else {
-      setLandings([...landings, newLanding])
+      // setLandings([...landings, newLanding])
+      landings.push(newLanding)
+      setLandings([...landings])
     }
-
   }
 
 
@@ -56,6 +59,7 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNew
           zoom={zoom}
           mapClick={mapClick}
           baseLocation={baseLocation}
+          landings={landings}
         />
       </div>
     </div>

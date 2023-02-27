@@ -22,7 +22,7 @@ const shipIcon1 = new L.Icon({
     shadowSize: null,
     shadowAnchor: null,
     // iconSize: new L.Point(20, 25),
-    iconSize: new L.Point(40, 40),
+    iconSize: new L.Point(45, 45),
     className: 'ship-icon-div'
 });
 

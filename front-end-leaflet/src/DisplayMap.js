@@ -4,13 +4,14 @@ import './css/DisplayMap.css'
 import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from 'react-leaflet'
 import { Icon, L, map } from 'leaflet'
 import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch'
-import { homeIcon } from './icons/Icons'
+import { homeIcon, shipIcon1 } from './icons/Icons'
 
 
-const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation}) => {
+const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation, landings}) => {
 
   const [centerPosition, setCenterPosition] = useState(null)
   
+
   useEffect(() => {
     setCenterPosition(startLocation)
     // console.log(baseLocation)
@@ -55,25 +56,26 @@ const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation}) => {
           icon={homeIcon}
           />}
         
-        {/* {
-          incidents.map(item => {
+        {landings && 
+          landings.map(landing => {
             return (
               <Marker
-                // change keys to incident number once real data is set up
-                key={item.location.point.latitude}
+                key={[
+              landing.coordinates[0],
+              landing.coordinates[1]]}
                 position={[
-                  item.location.point.latitude,
-                  item.location.point.longitude
+                  landing.coordinates[0],
+                  landing.coordinates[1]
                 ]}
+                icon={shipIcon1}
               />
             )
           })
-        } */}
+        }
         <LocationFinder />
       </MapContainer>
     </div>
   );
-
   
 }
 

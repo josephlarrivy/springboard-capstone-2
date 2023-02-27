@@ -14,13 +14,14 @@ const PlayContainer = () => {
   const [gameState, setGameState] = useState('chooseLocation')
   const [startLocation, setStartLocation] = useState(null)
   const [baseLocation, setBaseLocation] = useState(null)
-  const [landings, setLandings] = useState(null)
+  const [landings, setLandings] = useState()
   const [zoom, setZoom] = useState(11)
 
   useEffect(() => {
     console.log('PlayContainer Reload')
     // console.log(gameState)
     // console.log(baseLocation)
+    console.log(landings)
   }, [])
 
   if (gameState === 'chooseLocation') {

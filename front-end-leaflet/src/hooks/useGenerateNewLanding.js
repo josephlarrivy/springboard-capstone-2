@@ -18,8 +18,8 @@ const useGenerateNewLanding = () => {
     let [ x, y ] = center
     let plusOrMinus1 = Math.random() < 0.5 ? -1 : 1;
     let plusOrMinus2 = Math.random() < 0.5 ? -1 : 1;
-    let latMoveDist = Math.random()*(level/10)
-    let lonMoveDist = Math.random()*(level/3)
+    let latMoveDist = Math.random()*(level/11)
+    let lonMoveDist = Math.random()*(level/4)
 
     let newLat = x + (plusOrMinus1*latMoveDist)
     let newlon = y + (plusOrMinus2*lonMoveDist)
@@ -35,6 +35,10 @@ const useGenerateNewLanding = () => {
 
     return newShipObject;
   }
+
+
+
+  
 
   return [generateLanding]
 }
