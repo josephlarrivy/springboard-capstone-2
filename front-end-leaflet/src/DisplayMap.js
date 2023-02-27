@@ -22,7 +22,6 @@ const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation, landings}) =>
       click(e) {
         let { lat, lng } = e.latlng;
         let latLonArr = [lat, lng];
-        // console.log(latLonArr);
         mapClick(latLonArr)
       },
     });
@@ -57,7 +56,7 @@ const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation, landings}) =>
           icon={homeIcon}
           />}
           
-          
+
         
         {landings && 
           landings.map(landing => {

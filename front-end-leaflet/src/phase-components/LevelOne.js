@@ -11,15 +11,29 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
   const [subphase, setSubphase] = useState()
   const [alertCardInfo, setAlertCardInfo] = useState('')
   const [alertCardButtonFunction, setAlertCardButtonFunction] = useState(false)
-  const [landings, setLandings] = useState()
   const [generateLanding] = useGenerateNewLanding()
+  const [landings, setLandings] = useState(
+    [
+      {
+        'shipLevel': 1,
+        'coordinates': [
+          (baseLocation[0] - (1/20)),
+          (baseLocation[1] + (1/4))
+        ]
+      }
+    ]
+  )
 
 
   useEffect(() => {
+    console.log(landings)
     console.log('reload')
     setSubphase('levelOne-1')
     setAlertCardButtonFunction(alertCardButtonCallback2)
   }, [])
+
+
+
 
   const mapClick = (clickLocation) => {
     if (subphase === 'pickBaseLocation') {
@@ -29,22 +43,26 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
     console.log('checkpoint 1')
   }
 
-
   const addNewLanding = () => {
-    const newLanding = generateLanding(startLocation, 1)
-    if (landings == null) {
-      setLandings([newLanding])
-    } else {
+    let newLanding = generateLanding(startLocation, 1)
+
+
+    
+
+   
       let landingsArr = [];
       landings.map(l => {
         landingsArr.push(l)
       });
       landingsArr.push(newLanding);
+      console.log(landingsArr)
       setLandings(landingsArr)
-    }
+
     console.log(landings)
     console.log('checkpoint 2')
   }
+
+
 
   const alertCardButtonCallback2 = () => {
     addNewLanding()
@@ -67,29 +85,6 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
     })
     setAlertCardButtonFunction(() => alertCardButtonCallback3)
   }
-
-
-
-
-  // if (subphase === 'levelOne-1') {
-  //   
-    // setAlertCardButtonFunction(alertCardButtonCallback2)
-  // } 
-  // else if (subphase === 'levelOne-2') {
-  //   setAlertCardInfo({
-  //     heading: 'test',
-  //     text: 'test',
-  //     button: 'test'
-  //   })
-  //   setAlertCardButtonFunction(() => console.log('test2'))
-  // }
-
-
-
-
-  
-
-
 
 
 
