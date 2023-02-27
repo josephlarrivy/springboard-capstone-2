@@ -12,7 +12,7 @@ const TutorialPhase = ({ startLocation, setStartLocation, zoom, setGameState, ba
 
   const [subphase, setSubphase] = useState('pickBaseLocation')
   const [alertCardInfo, setAlertCardInfo] = useState('')
-  const [alertCardButtonFunction, setAlertCardButtonFunction] = useState(false)
+  const [alertCardButtonFunction, setAlertCardButtonFunction] = useState()
 
   useEffect(() => {
     setAlertCardInfo({heading:'Confirm your home base location by clicking on the map', text:null, button:null})
@@ -27,12 +27,13 @@ const TutorialPhase = ({ startLocation, setStartLocation, zoom, setGameState, ba
         text: null,
         button: 'Confirm'
       })
-      setAlertCardButtonFunction(alertCardButtonCallback1)
+      setAlertCardButtonFunction(() => alertCardButtonCallback1)
     }
   }
 
   const alertCardButtonCallback1 = () => {
     setGameState('levelOne')
+    console.log('called')
   }
 
 

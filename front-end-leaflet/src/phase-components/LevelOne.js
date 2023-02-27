@@ -8,26 +8,17 @@ import useGenerateNewLanding from '../hooks/useGenerateNewLanding.js'
 
 const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
 
-  const [subphase, setSubphase] = useState('levelOne-1')
+  const [subphase, setSubphase] = useState()
   const [alertCardInfo, setAlertCardInfo] = useState('')
   const [alertCardButtonFunction, setAlertCardButtonFunction] = useState(false)
   const [landings, setLandings] = useState()
   const [generateLanding] = useGenerateNewLanding()
 
 
-
-
-
-
-  
   useEffect(() => {
     console.log('reload')
-    setAlertCardInfo({
-      heading: 'UFO Sighting',
-      text: 'An unidentified flying object has been spotted in the skies above.',
-      button: 'Next'
-    })
-    setAlertCardButtonFunction(() => alertCardButtonCallback1)
+    setSubphase('levelOne-1')
+    // setAlertCardButtonFunction(() => alertCardButtonCallback1)
   }, [])
 
 
@@ -35,29 +26,67 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
 
 
 
+  // const addNewLanding = () => {
+  //   const newLanding = generateLanding(startLocation, 1)
+  //   if (landings == null) {
+  //     setLandings([newLanding])
+  //   } else {
+  //     let landingsArr = [];
+  //     landings.map(l => {
+  //       landingsArr.push(l)
+  //     });
+  //     landingsArr.push(newLanding);
+  //     setLandings(landingsArr)
+  //   }
+  //   console.log(landings)
+  // }
+
+
+  
 
 
 
 
-  const addNewLanding = () => {
-    const newLanding = generateLanding(startLocation, 1)
-    if (landings == null) {
-      setLandings([newLanding])
-    } else {
-      let landingsArr = [];
-      landings.map(l => {
-        landingsArr.push(l)
-      });
-      landingsArr.push(newLanding);
-      setLandings(landingsArr)
-    }
-    console.log(landings)
-  }
 
-  const alertCardButtonCallback1 = () => {
-    setSubphase('levelOne-2')
-    addNewLanding()
-  }
+  // const alertCardButtonCallback1 = () => {
+  //   setSubphase('levelOne-2')
+  //   addNewLanding()
+  // }
+
+
+
+
+  // if (subphase === 'levelOne-1') {
+  //   setAlertCardInfo({
+  //     heading: 'UFO Sighting',
+  //     text: 'An unidentified flying object has been spotted in the skies above.',
+  //     button: 'Next'
+  //   })
+  // } else {
+  //   setAlertCardInfo({
+  //     heading: 'test',
+  //     text: 'test',
+  //     button: 'test'
+  //   })
+  // }
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

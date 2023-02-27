@@ -29,21 +29,21 @@ const PlayContainer = () => {
 
 
   if (gameState === 'chooseLocation') {
-    // console.log('choose location')
+    console.log('choose location')
     return (
       <div className="play-container">
         <ChooseSenarioForm setStartLocation={setStartLocation} setGameState={setGameState}/>
       </div>
     )
   } else if (gameState === 'tutorialPhase') {
-    // console.log('tutorialPhase')
+    console.log('tutorialPhase')
     return (
       <div className="play-container">
         <TutorialPhase startLocation={startLocation} setStartLocation={setStartLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation}/>
       </div>
     )
   } else if (gameState === 'levelOne') {
-    // console.log('levelOne')
+    console.log('levelOne')
     return (
       <div className="play-container">
         <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation}/>
