@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import './css/PlayContainer.css'
+
+import useGenerateNewLanding from "./hooks/useGenerateNewLanding";
 
 import DisplayMap from "./DisplayMap";
 import ChooseSenarioForm from "./phase-components/ChooseStartLocationForm";
@@ -9,20 +11,34 @@ import LevelOne from "./phase-components/LevelOne";
 
 
 
-const PlayContainer = () => {
+const PlayContainer = ({landings, setLandings}) => {
 
   const [gameState, setGameState] = useState('chooseLocation')
   const [startLocation, setStartLocation] = useState(null)
   const [baseLocation, setBaseLocation] = useState(null)
-  const [landings, setLandings] = useState()
+  const [generateLanding] = useGenerateNewLanding()
   const [zoom, setZoom] = useState(11)
 
   useEffect(() => {
-    console.log('PlayContainer Reload')
+    // console.log('PlayContainer Reload')
     // console.log(gameState)
     // console.log(baseLocation)
     console.log(landings)
-  }, [])
+  }, [generateLanding])
+
+  const addNewLanding = () => {
+    let newLanding = generateLanding(baseLocation, 1)
+    console.log(newLanding)
+    console.log(landings)
+
+    if (landings === undefined) {
+      setLandings('test')
+    }
+    
+
+
+  }
+
 
   if (gameState === 'chooseLocation') {
     // console.log('choose location')
@@ -42,7 +58,7 @@ const PlayContainer = () => {
     // console.log('levelOne')
     return (
       <div className="play-container">
-        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} landings={landings} setLandings={setLandings}/>
+        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} landings={landings} setLandings={setLandings} addNewLanding={addNewLanding}/>
       </div>
     )
   }

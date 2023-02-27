@@ -3,15 +3,14 @@ import React, { useEffect, useState } from "react";
 import '../css/LevelOne.css'
 import DisplayMap from "../DisplayMap";
 import AlertCard from "../AlertCard";
-import useGenerateNewLanding from "../hooks/useGenerateNewLanding";
 
 
-const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNewIncident, landings, setLandings }) => {
+const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNewIncident, landings, setLandings, addNewLanding }) => {
 
   const [subphase, setSubphase] = useState('levelOne-1')
   const [alertCardInfo, setAlertCardInfo] = useState('')
   const [alertCardButtonFunction, setAlertCardButtonFunction] = useState(false)
-  const [generateLanding] = useGenerateNewLanding()
+  const [rerender, setRerender] = useState(false);
 
   useEffect(() => {
     console.log('reload')
@@ -23,6 +22,18 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNew
     setAlertCardButtonFunction(() => alertCardButtonCallback1)
   }, [])
 
+
+  
+
+  const alertCardButtonCallback1 = () => {
+    setSubphase('levelOne-2')
+    addNewLanding()
+  }
+
+
+
+
+
   const mapClick = (clickLocation) => {
     // if (subphase === 'pickBaseLocation') {
     //   setAlertCardInfo({ heading: 'Confirm base location?', text: null })
@@ -32,17 +43,6 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNew
 
 
 
-  const alertCardButtonCallback1 = () => {
-    setSubphase('levelOne-2')
-    let newLanding = generateLanding(baseLocation, 1)
-    if (!landings) {
-      setLandings([newLanding])
-    } else {
-      // setLandings([...landings, newLanding])
-      landings.push(newLanding)
-      setLandings([...landings])
-    }
-  }
 
 
   return (

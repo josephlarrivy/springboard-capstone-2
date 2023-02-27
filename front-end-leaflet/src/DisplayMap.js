@@ -12,9 +12,9 @@ const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation, landings}) =>
   const [centerPosition, setCenterPosition] = useState(null)
   
 
+
   useEffect(() => {
     setCenterPosition(startLocation)
-    // console.log(baseLocation)
   }, [])
 
   const LocationFinder = () => {
@@ -37,6 +37,7 @@ const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation, landings}) =>
     )
   }
 
+
   return (
     <div>
       <MapContainer
@@ -55,6 +56,7 @@ const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation, landings}) =>
           position={baseLocation}
           icon={homeIcon}
           />}
+          
         
         {landings && 
           landings.map(landing => {

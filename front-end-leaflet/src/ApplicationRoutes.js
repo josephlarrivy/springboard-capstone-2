@@ -7,7 +7,7 @@ import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
 import PlayContainer from "./PlayContainer";
 
-const ApplicationRoutes = ({setContextToken}) => {
+const ApplicationRoutes = ({setContextToken, setLandings}) => {
 
   return (
     <div>
@@ -15,7 +15,7 @@ const ApplicationRoutes = ({setContextToken}) => {
           
           <Route exact path="/" element={<Home />} />
           <Route exact path="/map" element={<DisplayMap /> } />
-          <Route exact path="/play" element={<PlayContainer />} />
+          <Route exact path="/play" element={<PlayContainer setLandings={setLandings} />} />
           <Route exact path="/register"
             element={<RegisterForm setContextToken={setContextToken}/>} />
           <Route exact path="/login"
