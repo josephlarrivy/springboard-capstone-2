@@ -4,7 +4,7 @@ import './css/DisplayMap.css'
 import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from 'react-leaflet'
 import { Icon, L, map } from 'leaflet'
 import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch'
-import { testIcon } from './icons/Icons'
+import { homeIcon } from './icons/Icons'
 
 
 const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation}) => {
@@ -52,7 +52,7 @@ const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation}) => {
           <Marker
           key={'baseLocation'}
           position={baseLocation}
-          icon={testIcon}
+          icon={homeIcon}
           />}
         
         {/* {

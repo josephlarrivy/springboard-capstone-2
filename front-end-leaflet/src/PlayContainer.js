@@ -20,13 +20,19 @@ const PlayContainer = () => {
   const [zoom, setZoom] = useState(11)
 
   useEffect(() => {
-    console.log(gameState)
-    console.log(baseLocation)
+    // console.log(gameState)
+    // console.log(baseLocation)
   })
 
-  const generateNewIncident = (center, distance) => {
-    let coordinates = generateIncident(center, distance)
-    return coordinates
+  const generateNewIncident = (center, level) => {
+    let coordinates = generateIncident(center, level)
+
+    let newShipObject = {
+      'shipLevel' : level,
+      'coordinates' : coordinates,
+    }
+
+    return newShipObject
   }
 
   if (gameState === 'chooseLocation') {
@@ -47,7 +53,7 @@ const PlayContainer = () => {
     // console.log('levelOne')
     return (
       <div className="play-container">
-        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} generateNewIncident={generateNewIncident}/>
+        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} generateNewIncident={generateNewIncident} incidents={incidents} setIncidents={setIncidents}/>
       </div>
     )
   }
