@@ -4,7 +4,6 @@ import './css/PlayContainer.css'
 
 import DisplayMap from "./DisplayMap";
 import ChooseSenarioForm from "./phase-components/ChooseStartLocationForm";
-import useGenerateNewLocation from './hooks/useGenerateNewLocation'
 import TutorialPhase from "./phase-components/TutorialPhase";
 import LevelOne from "./phase-components/LevelOne";
 
@@ -15,25 +14,14 @@ const PlayContainer = () => {
   const [gameState, setGameState] = useState('chooseLocation')
   const [startLocation, setStartLocation] = useState(null)
   const [baseLocation, setBaseLocation] = useState(null)
-  const [incidents, setIncidents] = useState(null)
-  const [generateIncident] = useGenerateNewLocation()
+  const [landings, setLandings] = useState(null)
   const [zoom, setZoom] = useState(11)
 
   useEffect(() => {
+    console.log('PlayContainer Reload')
     // console.log(gameState)
     // console.log(baseLocation)
-  })
-
-  const generateNewIncident = (center, level) => {
-    let coordinates = generateIncident(center, level)
-
-    let newShipObject = {
-      'shipLevel' : level,
-      'coordinates' : coordinates,
-    }
-
-    return newShipObject
-  }
+  }, [])
 
   if (gameState === 'chooseLocation') {
     // console.log('choose location')
@@ -53,7 +41,7 @@ const PlayContainer = () => {
     // console.log('levelOne')
     return (
       <div className="play-container">
-        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} generateNewIncident={generateNewIncident} incidents={incidents} setIncidents={setIncidents}/>
+        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} landings={landings} setLandings={setLandings}/>
       </div>
     )
   }

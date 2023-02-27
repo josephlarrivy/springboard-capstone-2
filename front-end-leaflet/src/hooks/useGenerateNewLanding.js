@@ -12,9 +12,9 @@ let example = {
     "responders": []
 }
 
-const useGenerateNewLocation = () => {
+const useGenerateNewLanding = () => {
 
-  const generateIncident = (center, level) => {
+  const generateLanding = (center, level) => {
     let [ x, y ] = center
     let plusOrMinus1 = Math.random() < 0.5 ? -1 : 1;
     let plusOrMinus2 = Math.random() < 0.5 ? -1 : 1;
@@ -27,16 +27,16 @@ const useGenerateNewLocation = () => {
     let newCoordinates = [newLat, newlon]
     
     console.log(newCoordinates)
-    // console.log(center)
-    // console.log(x)
-    // console.log(y)
-    // console.log(distance/10)
-    // console.log(distance/3)
 
-    return newCoordinates
+    let newShipObject = {
+      'shipLevel': level,
+      'coordinates': newCoordinates,
+    }
+
+    return newShipObject;
   }
 
-  return [generateIncident]
+  return [generateLanding]
 }
 
-export default useGenerateNewLocation;
+export default useGenerateNewLanding;

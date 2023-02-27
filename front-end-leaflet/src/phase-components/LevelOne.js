@@ -3,15 +3,18 @@ import React, { useEffect, useState } from "react";
 import '../css/LevelOne.css'
 import DisplayMap from "../DisplayMap";
 import AlertCard from "../AlertCard";
+import useGenerateNewLanding from "../hooks/useGenerateNewLanding";
 
 
-const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNewIncident, incidents, setIncidents }) => {
+const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNewIncident, landings, setLandings }) => {
 
   const [subphase, setSubphase] = useState('levelOne-1')
   const [alertCardInfo, setAlertCardInfo] = useState('')
   const [alertCardButtonFunction, setAlertCardButtonFunction] = useState(false)
+  const [generateLanding] = useGenerateNewLanding()
 
   useEffect(() => {
+    console.log('reload')
     setAlertCardInfo({
       heading: 'UFO Sighting',
       text: 'An unidentified flying object has been spotted in the skies above.',
@@ -29,9 +32,13 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNew
 
   const alertCardButtonCallback1 = () => {
     setSubphase('levelOne-2')
-    let newIncident = generateNewIncident(baseLocation, 1)
-    console.log(newIncident)
-    // setIncidents()
+    let newLanding = generateLanding(baseLocation, 1)
+    if (landings === null) {
+      setLandings([newLanding])
+    } else {
+      setLandings([...landings, newLanding])
+    }
+
   }
 
 
