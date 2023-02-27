@@ -6,7 +6,7 @@ import DisplayMap from "./DisplayMap";
 import ChooseSenarioForm from "./phase-components/ChooseStartLocationForm";
 import useGenerateNewLocation from './hooks/useGenerateNewLocation'
 import TutorialPhase from "./phase-components/TutorialPhase";
-
+import LevelOne from "./phase-components/LevelOne";
 
 
 
@@ -26,15 +26,24 @@ const PlayContainer = () => {
 
 
   if (gameState === 'chooseLocation') {
+    console.log('choose location')
     return (
       <div className="play-container">
         <ChooseSenarioForm setStartLocation={setStartLocation} setGameState={setGameState}/>
       </div>
     )
   } else if (gameState === 'tutorialPhase') {
+    console.log('tutorialPhase')
     return (
       <div className="play-container">
-        <TutorialPhase startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation}/>
+        <TutorialPhase startLocation={startLocation} setStartLocation={setStartLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation}/>
+      </div>
+    )
+  } else if (gameState === 'levelOne') {
+    console.log('levelOne')
+    return (
+      <div className="play-container">
+        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation} />
       </div>
     )
   }
