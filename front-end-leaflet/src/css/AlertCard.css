@@ -2,7 +2,7 @@
   position: absolute;
   z-index: 2 !important;
   margin-left: 68vw;
-  height: 15vh;
+  height: auto;
   width: 30vw;
   border-radius: 1vh;
   padding: 1vh;

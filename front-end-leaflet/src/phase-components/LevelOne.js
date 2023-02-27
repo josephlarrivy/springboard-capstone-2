@@ -1,29 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
-
-import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from 'react-leaflet'
 
 import '../css/LevelOne.css'
 import DisplayMap from "../DisplayMap";
 import AlertCard from "../AlertCard";
 
 
-const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, setBaseLocation }) => {
+const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
 
-  const [subphase, setSubphase] = useState('pickBaseLocation')
+  const [subphase, setSubphase] = useState('levelOne-1')
   const [alertCardInfo, setAlertCardInfo] = useState('')
+  const [alertCardButtonFunction, setAlertCardButtonFunction] = useState(false)
 
   useEffect(() => {
-    // console.log(subphase)
-    setAlertCardInfo({ heading: 'UFO Sighting', text: 'There have been reports of a UFO sighting in the skies nearby.' })
+    setAlertCardInfo({
+      heading: 'UFO Sighting',
+      text: 'An unidentified flying object has been spotted in the skies above.',
+      button: 'Next'
+    })
+    setAlertCardButtonFunction(() => alertCardButtonCallback1)
   }, [])
 
   const mapClick = (clickLocation) => {
-    
+    // if (subphase === 'pickBaseLocation') {
+    //   setAlertCardInfo({ heading: 'Confirm base location?', text: null })
+    //   setAlertCardButtonFunction(() => alertCardButtonCallback1)
+    // }
   }
 
-  const alertCardButtonFunction = () => {
-    console.log('test')
+  const alertCardButtonCallback1 = () => {
+    setSubphase('levelOne-2')
   }
 
 

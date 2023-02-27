@@ -8,7 +8,7 @@ const testIcon = new L.Icon({
     shadowUrl: null,
     shadowSize: null,
     shadowAnchor: null,
-    iconSize: new L.Point(40, 55),
+    iconSize: new L.Point(20, 25),
     className: 'leaflet-div-icon'
 });
 

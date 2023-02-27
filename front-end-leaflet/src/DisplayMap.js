@@ -13,7 +13,7 @@ const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation}) => {
   
   useEffect(() => {
     setCenterPosition(startLocation)
-    console.log(baseLocation)
+    // console.log(baseLocation)
   }, [])
 
   const LocationFinder = () => {
