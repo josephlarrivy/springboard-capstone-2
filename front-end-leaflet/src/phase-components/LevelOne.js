@@ -21,83 +21,79 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
     // setAlertCardButtonFunction(() => alertCardButtonCallback1)
   }, [])
 
-
-
-
-
-
-  // const addNewLanding = () => {
-  //   const newLanding = generateLanding(startLocation, 1)
-  //   if (landings == null) {
-  //     setLandings([newLanding])
-  //   } else {
-  //     let landingsArr = [];
-  //     landings.map(l => {
-  //       landingsArr.push(l)
-  //     });
-  //     landingsArr.push(newLanding);
-  //     setLandings(landingsArr)
-  //   }
-  //   console.log(landings)
-  // }
-
-
-  
-
-
-
-
-
-  // const alertCardButtonCallback1 = () => {
-  //   setSubphase('levelOne-2')
-  //   addNewLanding()
-  // }
-
-
-
-
-  // if (subphase === 'levelOne-1') {
-  //   setAlertCardInfo({
-  //     heading: 'UFO Sighting',
-  //     text: 'An unidentified flying object has been spotted in the skies above.',
-  //     button: 'Next'
-  //   })
-  // } else {
-  //   setAlertCardInfo({
-  //     heading: 'test',
-  //     text: 'test',
-  //     button: 'test'
-  //   })
-  // }
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   const mapClick = (clickLocation) => {
     // if (subphase === 'pickBaseLocation') {
     //   setAlertCardInfo({ heading: 'Confirm base location?', text: null })
     //   setAlertCardButtonFunction(() => alertCardButtonCallback1)
     // }
+    console.log('checkpoint 1')
   }
+
+
+  const addNewLanding = () => {
+    // const newLanding = generateLanding(startLocation, 1)
+    // if (landings == null) {
+    //   setLandings([newLanding])
+    // } else {
+    //   let landingsArr = [];
+    //   landings.map(l => {
+    //     landingsArr.push(l)
+    //   });
+    //   landingsArr.push(newLanding);
+    //   setLandings(landingsArr)
+    // }
+    // console.log(landings)
+    console.log('checkpoint 2')
+  }
+
+  const alertCardButtonCallback1 = () => {
+    // setSubphase('levelOne-2')
+    // addNewLanding()
+    console.log('checkpoint 3')
+  }
+
+
+
+
+  if (subphase === 'levelOne-1') {
+    setAlertCardInfo({
+      heading: 'UFO Sighting',
+      text: 'An unidentified flying object has been spotted in the skies above.',
+      button: 'Next'
+    })
+    setAlertCardButtonFunction(() => console.log('test'))
+  } else if (subphase === 'levelOne-2') {
+    setAlertCardInfo({
+      heading: 'test',
+      text: 'test',
+      button: 'test'
+    })
+    setAlertCardButtonFunction(() => console.log('test2'))
+  }
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
   return (
