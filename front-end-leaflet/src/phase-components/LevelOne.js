@@ -5,7 +5,7 @@ import DisplayMap from "../DisplayMap";
 import AlertCard from "../AlertCard";
 
 
-const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
+const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, generateNewIncident }) => {
 
   const [subphase, setSubphase] = useState('levelOne-1')
   const [alertCardInfo, setAlertCardInfo] = useState('')
@@ -29,6 +29,7 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
 
   const alertCardButtonCallback1 = () => {
     setSubphase('levelOne-2')
+    generateNewIncident(baseLocation, 1)
   }
 
 

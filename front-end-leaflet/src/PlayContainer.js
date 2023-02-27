@@ -24,6 +24,10 @@ const PlayContainer = () => {
     console.log(baseLocation)
   })
 
+  const generateNewIncident = (center, distance) => {
+    let coordinates = generateIncident(center, distance)
+    return coordinates
+  }
 
   if (gameState === 'chooseLocation') {
     // console.log('choose location')
@@ -43,7 +47,7 @@ const PlayContainer = () => {
     // console.log('levelOne')
     return (
       <div className="play-container">
-        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} />
+        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} generateNewIncident={generateNewIncident}/>
       </div>
     )
   }

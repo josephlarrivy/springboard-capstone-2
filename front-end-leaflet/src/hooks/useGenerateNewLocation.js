@@ -14,8 +14,13 @@ let example = {
 
 const useGenerateNewLocation = () => {
 
-  const generateIncident = () => {
-    return example
+  const generateIncident = (center, distance) => {
+    let [ x, y ] = center
+    console.log(center)
+    console.log(x)
+    console.log(y)
+    console.log(distance/10)
+    console.log(distance/3)
   }
 
   return [generateIncident]
