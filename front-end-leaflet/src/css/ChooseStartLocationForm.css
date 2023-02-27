@@ -1,12 +1,26 @@
-.choose-start-location-instructions {
+.instructions-1 {
   position: absolute;
   z-index: 2 !important;
   margin-top: 8vh;
   margin-left: 8vw;
-  height: 68vh;
+  height: 40vh;
   width: 48vw;
   border-radius: 3vh;
   padding: 5vh;
+
+  background-color: white;
+  text-align: center;
+}
+
+.instructions-2 {
+  position: absolute;
+  z-index: 2 !important;
+  margin-top: 70vh;
+  margin-left: 4vw;
+  height: 20vh;
+  width: 30vw;
+  border-radius: 3vh;
+  padding: 0vh;
 
   background-color: white;
   text-align: center;
