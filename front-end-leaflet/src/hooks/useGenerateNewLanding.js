@@ -26,8 +26,6 @@ const useGenerateNewLanding = () => {
 
     let newCoordinates = [newLat, newlon]
     
-    // console.log(newCoordinates)
-
     let newShipObject = {
       'shipLevel': level,
       'coordinates': newCoordinates,

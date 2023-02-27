@@ -6,23 +6,12 @@ import AlertCard from "../AlertCard";
 
 import useGenerateNewLanding from '../hooks/useGenerateNewLanding.js'
 
-const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
+const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, landings, setLandings, setAddLanding }) => {
 
   const [subphase, setSubphase] = useState()
   const [alertCardInfo, setAlertCardInfo] = useState('')
   const [alertCardButtonFunction, setAlertCardButtonFunction] = useState(false)
   const [generateLanding] = useGenerateNewLanding()
-  const [landings, setLandings] = useState(
-    [
-      {
-        'shipLevel': 1,
-        'coordinates': [
-          (baseLocation[0] - (1/20)),
-          (baseLocation[1] + (1/4))
-        ]
-      }
-    ]
-  )
 
 
   useEffect(() => {
@@ -40,32 +29,14 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
       setAlertCardInfo({ heading: 'Confirm base location?', text: null })
       setAlertCardButtonFunction(() => alertCardButtonCallback2)
     }
-    console.log('checkpoint 1')
   }
 
-  const addNewLanding = () => {
-    let newLanding = generateLanding(startLocation, 1)
-
-
-    
-
-   
-      let landingsArr = [];
-      landings.map(l => {
-        landingsArr.push(l)
-      });
-      landingsArr.push(newLanding);
-      console.log(landingsArr)
-      setLandings(landingsArr)
-
-    console.log(landings)
-    console.log('checkpoint 2')
-  }
+  
 
 
 
   const alertCardButtonCallback2 = () => {
-    addNewLanding()
+    // addNewLanding()
     console.log('checkpoint 3')
     setAlertCardInfo({
       heading: 'UFO Sighting',
@@ -76,17 +47,24 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation }) => {
   }
 
   const alertCardButtonCallback3 = () => {
-    addNewLanding()
-    console.log('checkpoint 4')
+    setAddLanding(true)
     setAlertCardInfo({
-      heading: 'TEST',
-      text: 'test',
-      button: 'test'
+      heading: 'TEST1',
+      text: 'test1',
+      button: 'test1'
     })
     setAlertCardButtonFunction(() => alertCardButtonCallback3)
   }
 
-
+  const alertCardButtonCallback4 = () => {
+    setAddLanding(true)
+    setAlertCardInfo({
+      heading: 'TEST2',
+      text: 'test2',
+      button: 'test2'
+    })
+    setAlertCardButtonFunction(() => alertCardButtonCallback4)
+  }
 
 
 
