@@ -79,6 +79,7 @@ const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState}
       </div>
     )
   } else if (instructions === 'instructions-2') {
+
       return (
         <div>
           <div className="instructions-2">

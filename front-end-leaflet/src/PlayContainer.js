@@ -6,8 +6,10 @@ import useGenerateNewLanding from "./hooks/useGenerateNewLanding";
 
 import DisplayMap from "./DisplayMap";
 import ChooseSenarioForm from "./phase-components/ChooseStartLocationForm";
+import NewChooseLocation from "./phase-components/NewChooseLocation";
 import TutorialPhase from "./phase-components/TutorialPhase";
 import LevelOne from "./phase-components/LevelOne";
+import NewChooselocation from "./phase-components/NewChooseLocation";
 
 
 
@@ -20,6 +22,8 @@ const PlayContainer = () => {
   const [zoom, setZoom] = useState(11)
   const [landings, setLandings] = useState()
   const [addLanding, setAddLanding] = useState(false)
+  const [centerPosition, setCenterPosition] = useState([35, 6])
+
 
   useEffect(() => {
     setLandings (
@@ -57,7 +61,7 @@ const PlayContainer = () => {
     console.log('choose location')
     return (
       <div className="play-container">
-        <ChooseSenarioForm startLocation={startLocation} setStartLocation={setStartLocation} setGameState={setGameState}/>
+        <NewChooselocation startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} landings={landings} setLandings={setLandings} setAddLanding={setAddLanding} setStartLocation={setStartLocation} centerPosition={centerPosition} setCenterPosition={setCenterPosition}/>
       </div>
     )
   } else if (gameState === 'tutorialPhase') {
