@@ -38,6 +38,7 @@ const PlayContainer = () => {
     console.log(landings)
   }, [baseLocation])
 
+  
   useEffect(() => {
     if (startLocation) {
       let newLanding = generateLanding(startLocation, 1)
@@ -50,7 +51,7 @@ const PlayContainer = () => {
     }
   }, [addLanding])
 
-  
+
 
   if (gameState === 'chooseLocation') {
     console.log('choose location')
