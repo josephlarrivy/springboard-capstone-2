@@ -31,7 +31,7 @@ const DisplayMap = ({ startLocation, zoom, mapClick, baseLocation, landings}) =>
   if (centerPosition === null) {
     return (
       <>
-        <h1>test</h1>
+        <h1>no center position</h1>
       </>
     )
   }

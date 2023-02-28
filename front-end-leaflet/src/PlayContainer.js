@@ -50,12 +50,13 @@ const PlayContainer = () => {
     }
   }, [addLanding])
 
+  
 
   if (gameState === 'chooseLocation') {
     console.log('choose location')
     return (
       <div className="play-container">
-        <ChooseSenarioForm setStartLocation={setStartLocation} setGameState={setGameState}/>
+        <ChooseSenarioForm startLocation={startLocation} setStartLocation={setStartLocation} setGameState={setGameState}/>
       </div>
     )
   } else if (gameState === 'tutorialPhase') {
@@ -69,7 +70,7 @@ const PlayContainer = () => {
     console.log('levelOne')
     return (
       <div className="play-container">
-        <LevelOne startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} landings={landings} setLandings={setLandings} setAddLanding={setAddLanding}/>
+        <LevelOne setStartLocation={setStartLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} landings={landings} setLandings={setLandings} setAddLanding={setAddLanding}/>
       </div>
     )
   }
