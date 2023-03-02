@@ -6,20 +6,29 @@ import AlertCard from "../AlertCard";
 
 import useGenerateNewLanding from '../hooks/useGenerateNewLanding.js'
 
-const NewChooseLocation = ({ startLocation, zoom, setGameState, baseLocation, landings, setLandings, setAddLanding, setStartLocation, centerPosition, setCenterPosition }) => {
+const NewChooseLocation = ({ startLocation, zoom, setGameState, baseLocation, setBaseLocation, landings, setAddLanding, centerLocation, setCenterPosition}) => {
 
   // const [zoom, setZoom] = useState(2)
-  const [currentZoom, setCurrentZoom] = useState(2)
+  // const [currentZoom, setCurrentZoom] = useState(2)
   const [instructions, setInstructions] = useState('instructions-1')
 
+  // const [zoom, setZoom] = useState(2)
+  // const [centerPosition, setCenterPosition] = useState([35, 6])
+
+
+  // const [landings, setLandings] = useState()
+  // const [addLanding, setAddLanding] = useState(false)
+  // const [gameState, setGameState] = useState('chooseLocation')
+  // const [startLocation, setStartLocation] = useState([35, 6])
+  // const [baseLocation, setBaseLocation] = useState(null)
   const [subphase, setSubphase] = useState()
   const [alertCardInfo, setAlertCardInfo] = useState('')
   const [alertCardButtonFunction, setAlertCardButtonFunction] = useState(false)
-  const [generateLanding] = useGenerateNewLanding()
+
 
 
   useEffect(() => {
-    setStartLocation(centerPosition)
+    // setStartLocation([1,1])
     console.log(landings)
     console.log('reload')
     setSubphase('levelOne-1')
@@ -44,8 +53,8 @@ const NewChooseLocation = ({ startLocation, zoom, setGameState, baseLocation, la
     // addNewLanding()
     console.log('checkpoint 3')
     setAlertCardInfo({
-      heading: 'UFO Sighting',
-      text: 'An unidentified flying object has been spotted in the skies above.',
+      heading: 'Welcome',
+      text: 'welcome',
       button: 'Next'
     })
     setAlertCardButtonFunction(() => alertCardButtonCallback3)
