@@ -106,8 +106,8 @@ const NewChooseLocation = ({ startLocation, zoom, setGameState, baseLocation, se
       </div>
       <div className="display-map">
         <DisplayMap
-          startLocation={startLocation}
-          zoom={zoom}
+          startLocation={[35,6]}
+          zoom={2}
           mapClick={mapClick}
           baseLocation={baseLocation}
           landings={landings}
