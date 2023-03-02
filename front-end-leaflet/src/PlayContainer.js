@@ -59,7 +59,7 @@ const PlayContainer = () => {
 
 
   if (gameState === 'chooseLocation') {
-    console.log('choose location')
+    // console.log('choose location')
     return (
       <div className="play-container">
         <NewChooselocation startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation} landings={landings} setAddLanding={setAddLanding} centerPosition={centerPosition} setCenterPosition={setCenterPosition}/>

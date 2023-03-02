@@ -39,7 +39,10 @@ const NewChooseLocation = ({ startLocation, zoom, setGameState, baseLocation, se
 
 
   const mapClick = (clickLocation) => {
+    console.log(clickLocation)
+    console.log('click1')
     if (subphase === 'pickBaseLocation') {
+      console.log('click2')
       setAlertCardInfo({ heading: 'Confirm base location?', text: null })
       setAlertCardButtonFunction(() => alertCardButtonCallback2)
     }
