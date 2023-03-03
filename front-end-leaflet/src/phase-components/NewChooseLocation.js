@@ -6,7 +6,7 @@ import AlertCard from "../AlertCard";
 
 import useGenerateNewLanding from '../hooks/useGenerateNewLanding.js'
 
-const NewChooseLocation = ({ startLocation, zoom, setGameState, baseLocation, setBaseLocation, landings, setAddLanding, centerLocation, setCenterPosition}) => {
+const NewChooseLocation = ({ startLocation, zoom, setZoom, setGameState, baseLocation, setBaseLocation, landings, setAddLanding, centerLocation, setCenterPosition}) => {
 
   // const [zoom, setZoom] = useState(2)
   // const [currentZoom, setCurrentZoom] = useState(2)
@@ -21,9 +21,10 @@ const NewChooseLocation = ({ startLocation, zoom, setGameState, baseLocation, se
   // const [gameState, setGameState] = useState('chooseLocation')
   // const [startLocation, setStartLocation] = useState([35, 6])
   // const [baseLocation, setBaseLocation] = useState(null)
-  const [subphase, setSubphase] = useState()
+  const [subphase, setSubphase] = useState('levelOne-1')
   const [alertCardInfo, setAlertCardInfo] = useState('')
   const [alertCardButtonFunction, setAlertCardButtonFunction] = useState(false)
+  const [reload, setReload] = useState(false)
 
 
 
@@ -31,39 +32,39 @@ const NewChooseLocation = ({ startLocation, zoom, setGameState, baseLocation, se
     // setStartLocation([1,1])
     console.log(landings)
     console.log('reload')
-    setSubphase('levelOne-1')
-    setAlertCardButtonFunction(alertCardButtonCallback2)
+    setAlertCardButtonFunction(alertCardButtonCallback1)
+    setReload(false)
   }, [])
 
 
 
 
   const mapClick = (clickLocation) => {
-    console.log(clickLocation)
-    console.log('click1')
-    if (subphase === 'pickBaseLocation') {
-      console.log('click2')
-      setAlertCardInfo({ heading: 'Confirm base location?', text: null })
+    if(subphase === 'levelOne-2') {
+      setZoom(13)
       setAlertCardButtonFunction(() => alertCardButtonCallback2)
+      setReload(true)
     }
+    console.log(clickLocation)
+    console.log('mapClick')
   }
 
   
 
 
 
-  const alertCardButtonCallback2 = () => {
-    // addNewLanding()
-    console.log('checkpoint 3')
+  const alertCardButtonCallback1 = () => {
+    setSubphase('levelOne-2')
+    console.log(subphase)
     setAlertCardInfo({
-      heading: 'Welcome',
-      text: 'welcome',
-      button: 'Next'
+      heading: 'Use the map to select a home region.',
+      text: 'Drap and scroll',
+      button: null
     })
-    setAlertCardButtonFunction(() => alertCardButtonCallback3)
+    // setAlertCardButtonFunction(() => alertCardButtonCallback2)
   }
 
-  const alertCardButtonCallback3 = () => {
+  const alertCardButtonCallback2 = () => {
     setAddLanding(true)
     setAlertCardInfo({
       heading: 'TEST1',
@@ -73,14 +74,14 @@ const NewChooseLocation = ({ startLocation, zoom, setGameState, baseLocation, se
     setAlertCardButtonFunction(() => alertCardButtonCallback3)
   }
 
-  const alertCardButtonCallback4 = () => {
+  const alertCardButtonCallback3 = () => {
     setAddLanding(true)
     setAlertCardInfo({
       heading: 'TEST2',
       text: 'test2',
       button: 'test2'
     })
-    setAlertCardButtonFunction(() => alertCardButtonCallback4)
+    // setAlertCardButtonFunction(() => alertCardButtonCallback4)
   }
 
 

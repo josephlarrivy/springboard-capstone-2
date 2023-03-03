@@ -62,7 +62,7 @@ const PlayContainer = () => {
     // console.log('choose location')
     return (
       <div className="play-container">
-        <NewChooselocation startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation} landings={landings} setAddLanding={setAddLanding} centerPosition={centerPosition} setCenterPosition={setCenterPosition}/>
+        <NewChooselocation startLocation={startLocation} zoom={zoom} setZoom={setZoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation} landings={landings} setAddLanding={setAddLanding} centerPosition={centerPosition} setCenterPosition={setCenterPosition}/>
       </div>
     )
   } else if (gameState === 'tutorialPhase') {
