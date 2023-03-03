@@ -18,7 +18,7 @@ const TutorialPhase = ({ startLocation, setStartLocation, zoom, setZoom, setGame
   useEffect(() => {
     setAlertCardInfo({heading:'Confirm your home base location by clicking on the map', text:null, button:null})
     setAlertCardButtonFunction(false)
-    setZoom(12)
+    setZoom(9)
   }, [])
 
   const mapClick = (clickLocation) => {

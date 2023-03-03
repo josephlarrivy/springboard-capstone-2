@@ -10,6 +10,7 @@ import NewChooseLocation from "./phase-components/NewChooseLocation";
 import TutorialPhase from "./phase-components/TutorialPhase";
 import LevelOne from "./phase-components/LevelOne";
 import NewChooselocation from "./phase-components/NewChooseLocation";
+import ChooseStartLocationForm from "./phase-components/ChooseStartLocationForm";
 
 
 
@@ -60,6 +61,10 @@ const PlayContainer = () => {
   }, [addLanding])
 
 
+  const setZoomFunction = (val) => {
+    setZoom(val)
+  }
+
 
   if (gameState === 'chooseLocation') {
     // console.log('choose location')
@@ -69,7 +74,9 @@ const PlayContainer = () => {
     //   </div>
     // )
     return(
-      <ChooseSenarioForm startLocation={startLocation} setStartLocation={setStartLocation} setGameState={setGameState} />
+      <>
+      <ChooseStartLocationForm startLocation={startLocation} setStartLocation={setStartLocation} setGameState={setGameState} zoom={zoom} setZoomFunction={setZoomFunction}/>
+      </>
     )
   } else if (gameState === 'tutorialPhase') {
     console.log('tutorialPhase')
