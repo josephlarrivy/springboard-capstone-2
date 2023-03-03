@@ -92,7 +92,7 @@ const LevelOne = ({ startLocation, zoom, setGameState, baseLocation, landings, s
       </div>
       <div className="display-map">
         <DisplayMap
-          startLocation={startLocation}
+          startLocation={baseLocation}
           zoom={zoom}
           mapClick={mapClick}
           baseLocation={baseLocation}
