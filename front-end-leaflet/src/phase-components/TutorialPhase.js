@@ -8,7 +8,7 @@ import DisplayMap from "../DisplayMap";
 import AlertCard from "../AlertCard";
 
 
-const TutorialPhase = ({ startLocation, setStartLocation, zoom, setGameState, baseLocation, setBaseLocation }) => {
+const TutorialPhase = ({ startLocation, setStartLocation, zoom, setZoom, setGameState, baseLocation, setBaseLocation }) => {
 
   const [subphase, setSubphase] = useState('pickBaseLocation')
   const [alertCardInfo, setAlertCardInfo] = useState('')
@@ -18,6 +18,7 @@ const TutorialPhase = ({ startLocation, setStartLocation, zoom, setGameState, ba
   useEffect(() => {
     setAlertCardInfo({heading:'Confirm your home base location by clicking on the map', text:null, button:null})
     setAlertCardButtonFunction(false)
+    setZoom(12)
   }, [])
 
   const mapClick = (clickLocation) => {

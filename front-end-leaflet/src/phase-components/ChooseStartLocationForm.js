@@ -10,8 +10,16 @@ const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState}
 
   const [centerPosition, setCenterPosition] = useState([35, 6])
   const [zoom, setZoom] = useState(2)
-  const [currentZoom, setCurrentZoom] = useState(2)
+  // const [currentZoom, setCurrentZoom] = useState(2)
   const [instructions, setInstructions] = useState('instructions-1')
+
+  useEffect(() => {
+    console.log(' ')
+    console.log('rerender')
+    // if (zoom === null) {
+    //   setZoom(2)
+    // }
+  }, [])
 
   const LocationClickFinder = () => {
     const map = useMapEvents({
@@ -22,6 +30,9 @@ const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState}
         console.log(zoom)
         if (instructions === 'instructions-2') {
           setStartLocation(latLonArr)
+          console.log('start location set')
+          setZoom(15)
+          setInstructions('instructions-3')
           // setGameState('tutorialPhase')
         }
       },
@@ -38,7 +49,7 @@ const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState}
       if (!centerPosition) {
         setInstructions('instructions-2')
       } else {
-        // setGameState('tutorialPhase')
+        setGameState('tutorialPhase')
         console.log('test')
       }
     }
@@ -84,8 +95,8 @@ const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState}
         <div>
           <div className="instructions-2">
             <p>Zoom in. Click to center map on start location.</p>
-            <button onClick={nextInstructions}>Okay</button>
-            <button onClick={previousInstructions}>Back</button>
+            {/* <button onClick={nextInstructions}>Okay</button> */}
+            {/* <button onClick={previousInstructions}>Back</button> */}
           </div>
           <MapContainer
             className="choose-start-location-map"
@@ -115,7 +126,7 @@ const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState}
           className="choose-start-location-map"
           key={'mapContainer'}
           center={centerPosition}
-          zoom={zoom}
+          zoom={20}
         >
           <TileLayer key={'tileLayer'}
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

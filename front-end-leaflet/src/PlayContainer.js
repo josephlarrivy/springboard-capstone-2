@@ -19,10 +19,12 @@ const PlayContainer = () => {
   const [startLocation, setStartLocation] = useState(null)
   const [baseLocation, setBaseLocation] = useState(null)
   const [generateLanding] = useGenerateNewLanding()
-  const [zoom, setZoom] = useState(11)
+  const [zoom, setZoom] = useState(2)
   const [landings, setLandings] = useState()
   const [addLanding, setAddLanding] = useState(false)
   const [centerPosition, setCenterPosition] = useState([35, 6])
+  const [reload, setReload] = useState(false)
+
 
 
 
@@ -41,6 +43,7 @@ const PlayContainer = () => {
         : null
     )
     console.log(landings)
+    // setReload(false)
   }, [baseLocation])
 
   
@@ -60,16 +63,19 @@ const PlayContainer = () => {
 
   if (gameState === 'chooseLocation') {
     // console.log('choose location')
-    return (
-      <div className="play-container">
-        <NewChooselocation startLocation={startLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation} landings={landings} setAddLanding={setAddLanding} centerPosition={centerPosition} setCenterPosition={setCenterPosition}/>
-      </div>
+    // return (
+    //   <div className="play-container">
+    //     <NewChooselocation startLocation={startLocation} zoom={zoom} setZoom={setZoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation} landings={landings} setAddLanding={setAddLanding} centerPosition={centerPosition} setCenterPosition={setCenterPosition} reload={reload} setReload={setReload}/>
+    //   </div>
+    // )
+    return(
+      <ChooseSenarioForm startLocation={startLocation} setStartLocation={setStartLocation} setGameState={setGameState} />
     )
   } else if (gameState === 'tutorialPhase') {
     console.log('tutorialPhase')
     return (
       <div className="play-container">
-        <TutorialPhase startLocation={startLocation} setStartLocation={setStartLocation} zoom={zoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation}/>
+        <TutorialPhase startLocation={startLocation} setStartLocation={setStartLocation} zoom={zoom} setZoom={setZoom} setGameState={setGameState} baseLocation={baseLocation} setBaseLocation={setBaseLocation}/>
       </div>
     )
   } else if (gameState === 'levelOne') {
