@@ -43,6 +43,7 @@ const PlayContainer = () => {
         ]
         : null
     )
+    
     console.log(landings)
     // setReload(false)
   }, [baseLocation])
@@ -75,7 +76,7 @@ const PlayContainer = () => {
     // )
     return(
       <>
-      <ChooseStartLocationForm startLocation={startLocation} setStartLocation={setStartLocation} setGameState={setGameState} zoom={zoom} setZoomFunction={setZoomFunction}/>
+      <ChooseStartLocationForm startLocation={startLocation} setStartLocation={setStartLocation} setGameState={setGameState} zoom={zoom} setZoomFunction={setZoomFunction} centerPosition={centerPosition} setCenterPosition={setCenterPosition}/>
       </>
     )
   } else if (gameState === 'tutorialPhase') {

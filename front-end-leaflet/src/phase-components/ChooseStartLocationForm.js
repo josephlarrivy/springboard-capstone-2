@@ -6,9 +6,9 @@ import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents } from 're
 import '../css/ChooseStartLocationForm.css'
 
 
-const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState, zoom, setZoomFunction}) => {
+const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState, zoom, setZoomFunction, centerPosition, setCenterPosition}) => {
 
-  const [centerPosition, setCenterPosition] = useState([35, 6])
+  // const [centerPosition, setCenterPosition] = useState([35, 6])
   // const [zoom, setZoom] = useState(4)
   // const [currentZoom, setCurrentZoom] = useState(2)
   const [instructions, setInstructions] = useState('instructions-1')
@@ -36,12 +36,16 @@ const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState,
         // console.log(zoom)
         // setZoomFunction(scrollwheelZoom)
         setReload(reload+1)
+        console.log(centerPosition)
         if (instructions === 'instructions-2') {
           // setZoom(15)
-          setStartLocation(latLonArr)
           console.log('startLoc:', latLonArr)
           setInstructions('instructions-3')
           // setGameState('tutorialPhase')
+        if (instructions === 'instructions-3') {
+          setStartLocation(latLonArr)
+          setCenterPosition(latLonArr)
+        }
         }
       },
     });
@@ -126,10 +130,10 @@ const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState,
     if (scrollwheelZoom < 9) {
       return (
         <div>
-          <div className="instructions-2">
-            <p>Please zoom closer to choose a start location.</p>
-            <button onClick={nextInstructions}>Okay</button>
-            <button onClick={previousInstructions}>Back</button>
+          <div className="instructions-3">
+            <p>Zoom closer. Click to choose a start location.</p>
+            {/* <button onClick={nextInstructions}>Okay</button> */}
+            {/* <button onClick={previousInstructions}>Back</button> */}
           </div>
           <MapContainer
             className="choose-start-location-map"
@@ -149,8 +153,8 @@ const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState,
     } else {
       return (
         <div>
-          <div className="instructions-2">
-            <p>Click to center map.</p>
+          <div className="instructions-3">
+            <p>Click where you would like to center the map.</p>
             <button onClick={nextInstructions}>Next</button>
             <button onClick={previousInstructions}>Back</button>
           </div>
@@ -158,7 +162,7 @@ const ChooseStartLocationForm = ({startLocation, setStartLocation, setGameState,
             className="choose-start-location-map"
             key={'mapContainer'}
             center={centerPosition}
-            zoom={20}
+            zoom={zoom}
           >
             <TileLayer key={'tileLayer'}
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
