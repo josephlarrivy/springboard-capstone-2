@@ -13,7 +13,7 @@ import TokenContext from './TokenContext';
 
 function App() {
 
-  const [loading, setLoading] = useState(true)
+  // const [loading, setLoading] = useState(true)
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
   const [contextToken, setContextToken] = useState(null)
 

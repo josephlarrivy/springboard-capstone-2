@@ -13,6 +13,7 @@ const Map = () => {
   const [centerPosition, setCenterPosition] = useState([36.0902, -80.7129])
   const [zoom, setZoom] = useState(4)
 
+  const [menuState, setMenuState] = useState('hamburger')
   const [showingParks, setShowingParks] = useState(null)
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const Map = () => {
       let resp = await NParksServiceRequest.getAllParks(700)
       // console.log(resp)
       setShowingParks(resp)
+      console.log(menuState)
     }
     getInitialPins()
   }, [])  
@@ -32,7 +34,7 @@ const Map = () => {
         showingParks={showingParks}
       />
       <Menu
-
+        menuState={menuState}
       />
     </div>
   )

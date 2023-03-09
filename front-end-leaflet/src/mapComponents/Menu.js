@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import '../css/Menu.css'
 
-const Menu = () => {
+const Menu = ({ menuState }) => {
 
+  if (menuState === 'hamburger') {
+    return (
+      <div className='menu-hamburger'>
+        <p className='hamburger-title'><b>Menu</b></p>
+        <div className='hamburger-line'></div>
+        <div className='hamburger-line'></div>
+      </div>
+    )
+  }
   return (
     <div className='menu-container'>
       {/* <h1>test</h1>
