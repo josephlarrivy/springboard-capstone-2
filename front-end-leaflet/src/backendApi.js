@@ -1,5 +1,5 @@
 import axios from "axios";
-import { control } from "leaflet";
+// import { control } from "leaflet";
 // const jwt_decode = require("jwt-decode");
 import jwtDecode from "jwt-decode";
 
