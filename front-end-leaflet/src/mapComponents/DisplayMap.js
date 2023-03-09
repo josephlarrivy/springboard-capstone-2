@@ -6,7 +6,6 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import { L, Icon } from 'leaflet'
 
 
-import { HikingTrails } from './Layers'
 
 // import { Item, LinkedList, testingData } from './unusedFiles/linkedlist'
 
@@ -40,23 +39,7 @@ const DisplayMap = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
-          {/* {
-          events.map(item => {
-            return (
-              <Marker
-                // change keys to incident number once real data is set up
-                key={item.event.location.point.latitude}
-                position={[
-                  item.event.location.point.latitude,
-                  item.event.location.point.longitude
-                ]}
-              />
-            )
-          })
-        } */}
-
         </MapContainer>
-        <div id='map'></div>
       </>
       
     );
