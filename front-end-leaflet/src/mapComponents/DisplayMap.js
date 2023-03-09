@@ -26,6 +26,9 @@ const DisplayMap = ({ centerPosition, zoom, showingParks }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+{/* 
+
         {showingParks &&
           showingParks.map(park => {
             return (
@@ -35,10 +38,8 @@ const DisplayMap = ({ centerPosition, zoom, showingParks }) => {
                   park.latitude,
                   park.longitude
                 ]}
-                // icon={shipIcon1}
               >
               <Popup>
-                {/* className='pop-up' */}
                 <h4>{park.fullName}</h4>
 
                 <div className='popup-image-div'>
@@ -60,6 +61,9 @@ const DisplayMap = ({ centerPosition, zoom, showingParks }) => {
             )
           })
         }
+ */}
+
+        
       </MapContainer>
     </div>
   );

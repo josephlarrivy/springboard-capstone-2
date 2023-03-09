@@ -8,17 +8,22 @@ import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
 
 
-const ApplicationRoutes = ({setContextToken}) => {
+const ApplicationRoutes = ({contextToken, setContextToken}) => {
 
   return (
     <div>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/map" element={<Map /> } />
+          {/* <Route exact path="/map" element={<Map /> } /> */}
           <Route exact path="/register"
-            element={<RegisterForm setContextToken={setContextToken}/>} />
+            element={
+            <RegisterForm
+            setContextToken={setContextToken}/>}
+          />
           <Route exact path="/login"
-            element={<LoginForm setContextToken={setContextToken} />} />
+            element={<LoginForm 
+            setContextToken={setContextToken} />}
+          />
 
         </Routes>
 

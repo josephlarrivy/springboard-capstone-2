@@ -22,28 +22,33 @@ const NavBar = () => {
     <div>
       <Navbar>
 
-        <Nav className="ml-auto">
+        <Nav >
 
 
           <NavItem>
             <NavLink to="/">Home</NavLink>
           </NavItem>
 
-          <NavItem>
-            <NavLink to="/map">Map</NavLink>
-          </NavItem>
+          <br></br>
+
 
           <NavItem>
             <NavLink to="/register">Register</NavLink>
           </NavItem>
-
+          <br></br>
           <NavItem>
             <NavLink to="/login">Log In</NavLink>
           </NavItem>
+          <br></br>
 
           <NavItem>
             <NavLink onClick={logOut} id="nav-logout">Log Out</NavLink>
           </NavItem>
+          <br></br>
+
+          {/* <NavItem>
+            <NavLink to="/map">Map</NavLink>
+          </NavItem> */}
 
         </Nav>
       </Navbar>

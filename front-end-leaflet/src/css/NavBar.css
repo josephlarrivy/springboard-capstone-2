@@ -1,12 +1,13 @@
 nav {
-    background-color: black;
-    margin-top: 0;
+    /* background-color: black; */
+    /* margin-top: 0; */
+    /* z-index: 3; */
 }
 
 .nav-item {
     /* width: 10vh; */
     display: inline;
-    margin-left: 10vh;
+    /* margin-left: 10vh; */
 }
 
 nav a {
@@ -15,7 +16,7 @@ nav a {
 }
 
 nav a.active {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
