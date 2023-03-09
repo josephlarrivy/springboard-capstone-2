@@ -2,7 +2,7 @@ import './css/App.css';
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
-import DisplayMap from './DisplayMap';
+import DisplayMap from './mapComponents/DisplayMap';
 import NavBar from './NavBar';
 import ApplicationRoutes from './ApplicationRoutes';
 import LoadingSpinner from './loader/LoadingSpinner'

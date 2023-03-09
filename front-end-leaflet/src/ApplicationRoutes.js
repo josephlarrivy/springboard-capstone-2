@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Route, Routes } from 'react-router-dom';
 
 import Home from "./Home";
-import DisplayMap from './DisplayMap';
+import DisplayMap from './mapComponents/DisplayMap';
 import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
 
