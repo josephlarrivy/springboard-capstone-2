@@ -29,7 +29,6 @@ const Home = () => {
   }
 
   const handleClick4 = async () => {
-    console.log('click4')
     let resp = await NParksServiceRequest.test()
     console.log(resp)
   }

@@ -12,18 +12,16 @@ class NParksServiceRequest {
       const headers = { "X-Api-Key": parks_api_key };
       const method = 'get'
       const url = `${PARKS_BASE_URL}${endpoint}`
-      const resp = await axios({method, url, headers })
-      console.log(url)
+      const resp = await axios({ method, url, headers })
       return (resp)
     } catch (err) {
-      // Handle Error Here
       console.error(err);
     }
   }
 
   static async test() {
     const resp = await this.makeRequest('/parks?limit=10')
-    console.log(resp)
+    // console.log(resp)
     return resp
   }
 

@@ -29,7 +29,7 @@ function App() {
     <div>
       <TokenContext.Provider value={contextToken}>
         <BrowserRouter>
-          <NavBar />
+          {/* <NavBar /> */}
           <ApplicationRoutes setContextToken={setContextToken}/>
         </BrowserRouter>
       </TokenContext.Provider>

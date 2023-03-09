@@ -1,14 +1,12 @@
 nav {
     background-color: black;
-    margin-top: -1rem;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    margin-top: 0;
 }
 
 .nav-item {
-    width: 100px;
+    /* width: 10vh; */
     display: inline;
-    margin: 20px;
+    margin-left: 10vh;
 }
 
 nav a {
