@@ -30,15 +30,33 @@ const DisplayMap = ({ centerPosition, zoom, showingParks }) => {
           showingParks.map(park => {
             return (
               <Marker
-                key={[
-                  park.location.lat,
-                  park.location.lon]}
+                key={park.parkCode}
                 position={[
-                  park.location.lat,
-                  park.location.lon
+                  park.latitude,
+                  park.longitude
                 ]}
                 // icon={shipIcon1}
-              />
+              >
+              <Popup>
+                {/* className='pop-up' */}
+                <h4>{park.fullName}</h4>
+
+                <div className='popup-image-div'>
+                  <img
+                    className='popup-image'
+                    src={park.images[0].url}
+                  ></img>
+                  <button>View Details</button>
+                </div>
+
+                  
+                <div className='popup-description-div'>
+                    <p className='popup-description'>{park.description}</p>
+                </div>
+                
+
+              </Popup>
+              </Marker>
             )
           })
         }

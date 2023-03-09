@@ -10,15 +10,15 @@ import NParksServiceRequest from "../nationalParksApi";
 
 const Map = () => {
 
-  const [centerPosition, setCenterPosition] = useState([38.0902, -95.7129])
-  const [zoom, setZoom] = useState(5)
+  const [centerPosition, setCenterPosition] = useState([36.0902, -80.7129])
+  const [zoom, setZoom] = useState(4)
 
   const [showingParks, setShowingParks] = useState(null)
 
   useEffect(() => {
     const getInitialPins = async () => {
-      let resp = await NParksServiceRequest.getAllParks()
-      console.log(resp)
+      let resp = await NParksServiceRequest.getAllParks(700)
+      // console.log(resp)
       setShowingParks(resp)
     }
     getInitialPins()
