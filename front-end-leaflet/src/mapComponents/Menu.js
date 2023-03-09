@@ -5,7 +5,11 @@ const Menu = () => {
 
   return (
     <div className='menu-container'>
-      <h1>test</h1>
+      {/* <h1>test</h1>
+      <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test </p>
+      <br></br>
+      <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test </p> */}
+
     </div>
   )
 }

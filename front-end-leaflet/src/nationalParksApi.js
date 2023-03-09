@@ -19,10 +19,26 @@ class NParksServiceRequest {
     }
   }
 
-  static async test() {
-    const resp = await this.makeRequest('/parks?limit=10')
-    // console.log(resp)
-    return resp
+  static async getAllParks(limit='50') {
+    const resp = await this.makeRequest(`/parks?limit=${limit}`)
+    const list = resp.data.data
+    console.log(list)
+
+    const parksArray = []
+    for (let park of list) {
+      parksArray.push({
+        'name' : park.fullName,
+        'parkCode': park.parkCode,
+        'location' : {
+          'lat' : park.latitude,
+          'lon' : park.longitude,
+          'address' : park.addresses[0]
+        },
+        'image' : park.images[0].url
+      })
+
+    }
+    return parksArray
   }
 
 
