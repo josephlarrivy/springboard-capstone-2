@@ -6,6 +6,7 @@ import Home from "./Home";
 import Map from "./mapComponents/Map";
 import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
+import AllParks from "./parksComponents/AllParks";
 
 
 const ApplicationRoutes = ({contextToken, setContextToken}) => {
@@ -24,6 +25,14 @@ const ApplicationRoutes = ({contextToken, setContextToken}) => {
             element={<LoginForm 
             setContextToken={setContextToken} />}
           />
+
+
+
+
+
+
+          <Route exact path="/allParks" element={<AllParks />} />
+
 
         </Routes>
 

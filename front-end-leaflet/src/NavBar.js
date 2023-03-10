@@ -21,7 +21,7 @@ const NavBar = ({contextToken, setContextToken}) => {
     console.log(contextToken)
   },[])
   
-
+  
 
   if (contextToken === undefined || contextToken === null) {
     return (

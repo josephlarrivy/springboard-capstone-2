@@ -3,6 +3,7 @@ import { Nav } from 'reactstrap'
 import ApplicationRoutes from '../ApplicationRoutes'
 import '../css/Menu.css'
 import NavBar from '../NavBar'
+import ParksNav from '../ParksNav'
 
 const Menu = ({ openMenu, menuState, contextToken, setContextToken }) => {
 
@@ -26,6 +27,7 @@ const Menu = ({ openMenu, menuState, contextToken, setContextToken }) => {
           contextToken={contextToken}
           setContextToken={setContextToken}
         />
+        <ParksNav />
 
         <ApplicationRoutes
           contextToken={contextToken}
