@@ -50,7 +50,6 @@
   
   background-color: white;
 
-
   animation: menu-open-b;
   animation-duration: 1s;
 }
@@ -71,6 +70,17 @@
     text-align: center;
 
     color: white;
+  }
+
+  100% {
+    /* background-color: aqua; */
+  }
+}
+
+
+@keyframes menu-change {
+  0% {
+    
   }
 
   100% {
