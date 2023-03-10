@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Route, Routes } from 'react-router-dom';
 
 import Home from "./Home";
@@ -11,6 +11,7 @@ import Park from "./Park";
 
 
 const ApplicationRoutes = ({contextToken, setContextToken, showingParks}) => {
+
 
   return (
     <div>
@@ -31,7 +32,10 @@ const ApplicationRoutes = ({contextToken, setContextToken, showingParks}) => {
             showingParks={showingParks}
           />} />
 
-        <Route exact path="/park/:code" element={<Park/>} />
+        <Route 
+          exact path="/park/:code"
+          element={<Park />}
+        />
 
 
         </Routes>

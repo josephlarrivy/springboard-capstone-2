@@ -6,6 +6,7 @@ import BackendApiRequest from "./backendApi";
 import NParksServiceRequest from "./nationalParksApi";
 import TokenContext from "./TokenContext";
 
+import './css/Park.css'
 
 
 const Park = () => {
@@ -15,22 +16,31 @@ const Park = () => {
 
   useEffect(() => {
     const getSingleParkData = async () => {
-      let data = await NParksServiceRequest.getSingleParkData(parkCode)
+      let data = await NParksServiceRequest.getSingleParkData(parkCode.code)
       setParkData(data)
-      // console.log(parkData)
-
     }
     getSingleParkData()
   }, [])
 
   if (parkData === null) {
     return (
-      <h1>no data</h1>
+      <h1>Loading</h1>
     )
   } else {
     return (
       <div>
-        <h1>data</h1>
+        <div className="images">
+          <img
+            className='park-image'
+            src={parkData.images[0].url}
+          ></img>
+        </div>
+        <h3>{parkData.fullName}</h3>
+        <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
+        <p><b>Designation:</b> {parkData.designation}</p>
+        <p>{parkData.description}</p>
+        <p><b>Weather:</b> {parkData.weatherInfo}</p>
+        <a href={parkData.url} target='blank'>Visit Official Website</a>
       </div>
     )
   }

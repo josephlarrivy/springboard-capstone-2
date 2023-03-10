@@ -49,12 +49,12 @@ const DisplayMap = ({ centerPosition, zoom, showingParks }) => {
                     className='popup-image'
                     src={park.images[0].url}
                   ></img>
-                    <Link to={`/park/${park.parkCode}`}>View Park</Link>
+                    
                 </div>
 
                   
                 <div className='popup-description-div'>
-                    <p className='popup-description'>{park.description}</p>
+                  <p className='popup-description'>{park.description}</p>
                 </div>
                 
 

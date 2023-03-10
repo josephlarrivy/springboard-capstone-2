@@ -32,10 +32,11 @@ function App() {
     setContextToken(token)
 
     const getInitialParks = async () => {
-      let resp = await NParksServiceRequest.getAllParks(700)
+      let resp = await NParksServiceRequest.getAllParks(200)
       setShowingParks(resp)
     }
     getInitialParks()
+    console.log(centerPosition)
   }, [])
 
   const openMenu = () => {

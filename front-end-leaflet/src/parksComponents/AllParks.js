@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, Navigate, Route, Routes } from 'react-router-dom';
 
+import '../css/AllParks.css'
 
 import BackendApiRequest from "../backendApi";
 import NParksServiceRequest from "../nationalParksApi";
@@ -9,14 +10,6 @@ import TokenContext from "../TokenContext";
 
 
 const AllParks = ({showingParks}) => {
-
-  // useEffect(() => {
-  //   console.log(showingParks)
-  // }, [])
-
-  // const parkClick = () => {
-  //   console.log('click')
-  // }
 
   return (
     <div>
@@ -28,10 +21,18 @@ const AllParks = ({showingParks}) => {
             <div
               key={park.parkCode}
               className="park-list-container"
-              // onClick={parkClick}
             >
+
+
+              <img
+                className='park-image'
+                src={park.images[0].url}
+              ></img>
               <h4>{park.fullName}</h4>
               <Link to={`/park/${park.parkCode}`}>View Park</Link>
+
+
+
             </div>  
           )
         })

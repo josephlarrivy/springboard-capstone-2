@@ -5,7 +5,7 @@ import '../css/Menu.css'
 import NavBar from '../NavBar'
 import ParksNav from '../ParksNav'
 
-const Menu = ({ openMenu, menuState, showingParks,contextToken, setContextToken }) => {
+const Menu = ({ openMenu, menuState, showingParks,contextToken, setContextToken}) => {
 
   useEffect(() => {
     // setReload(false)

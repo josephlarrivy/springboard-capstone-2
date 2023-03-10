@@ -14,6 +14,7 @@ const NavBar = ({contextToken, setContextToken}) => {
 
   const logOut = () => {
     localRemoveToken()
+    setContextToken(null)
     // window.location.reload(true);
   }
   

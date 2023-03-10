@@ -1,0 +1,16 @@
+.park-list-container {
+  border: 1px solid black;
+  margin-bottom: 1vh;
+  padding: 1vw;
+  border-radius: 5px;
+}
+
+.park-image {
+  width: 20vh;
+  height: 20vh;
+}
+
+.park-list-container h4 {
+  /* border: 1px solid black;
+  background-color: aqua; */
+}
