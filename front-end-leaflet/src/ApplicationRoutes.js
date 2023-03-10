@@ -13,7 +13,7 @@ const ApplicationRoutes = ({contextToken, setContextToken}) => {
   return (
     <div>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Home />}/>
           {/* <Route exact path="/map" element={<Map /> } /> */}
           <Route exact path="/register"
             element={

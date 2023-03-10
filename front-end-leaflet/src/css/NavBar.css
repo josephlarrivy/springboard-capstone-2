@@ -1,14 +1,14 @@
 nav {
     /* background-color: black; */
     margin-top: -3vh;
-    margin-left: -2vw;
+    margin-left: -3vw;
     /* z-index: 3; */
 }
 
 .nav-item {
     /* width: 10vh; */
     display: inline-block;
-    /* margin-left: 10vh; */
+    margin-left: 2vh;
 }
 
 nav a {

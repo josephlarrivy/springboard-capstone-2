@@ -25,8 +25,15 @@ function App() {
   useEffect(() => {
     const token = localRetrieveToken()
     setContextToken(token)
+    console.log(menuState)
   }, [])
 
+
+  const openMenu = () => {
+    setMenuState('menu-container')
+  }
+
+  
 
 
   return (
@@ -35,8 +42,8 @@ function App() {
         <BrowserRouter>
           <Map />
           <Menu
+            openMenu={openMenu}
             menuState={menuState}
-            setMenuState={setMenuState}
             contextToken={contextToken}
             setContextToken={setContextToken}
           >

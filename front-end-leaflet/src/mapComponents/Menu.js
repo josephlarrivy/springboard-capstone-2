@@ -4,36 +4,36 @@ import ApplicationRoutes from '../ApplicationRoutes'
 import '../css/Menu.css'
 import NavBar from '../NavBar'
 
-const Menu = ({ menuState, setMenuState, contextToken, setContextToken }) => {
+const Menu = ({ openMenu, menuState, contextToken, setContextToken }) => {
 
-  const openMenu = () => {
-    setMenuState('open')
-  }
+  useEffect(() => {
+    // setReload(false)
+    console.log('Menu reloaded')
+  }, [])
 
   if (menuState === 'hamburger') {
     return (
-      <div onClick={openMenu} className='menu-hamburger'>
+      <div onClick={openMenu} className={menuState}>
         <p className='hamburger-title'><b>Menu</b></p>
         <div className='hamburger-line'></div>
         <div className='hamburger-line'></div>
       </div>
     )
-  } else {
+  } else if (menuState === 'menu-container') {
     return (
-      <div className='menu-container'>
-      <NavBar>
+      <div className={menuState}>
+        <NavBar
+          contextToken={contextToken}
+          setContextToken={setContextToken}
+        />
 
-      </NavBar>
-
-      <ApplicationRoutes
-        contextToken={contextToken}
-        setContextToken={setContextToken}
-      >
-      </ApplicationRoutes>
+        <ApplicationRoutes
+          contextToken={contextToken}
+          setContextToken={setContextToken}
+        />
       </div>
     )
-  }
-  
+  } 
 }
 
 export default Menu;

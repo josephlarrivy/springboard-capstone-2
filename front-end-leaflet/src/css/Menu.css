@@ -1,4 +1,4 @@
-.menu-hamburger {
+.hamburger {
   position: absolute;
   z-index: 2;
 
@@ -34,6 +34,18 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 .menu-container {
   position: absolute;
   z-index: 2;
@@ -50,10 +62,48 @@
   
   background-color: white;
 
-  animation: menu-open-b;
-  animation-duration: 1s;
+  transition: 1s;
+
+  /* animation: menu-open-b; */
+  /* animation-duration: 1s; */
+
+  animation: menu-change;
+  animation-duration: 3s;
 }
 
+
+
+
+@keyframes menu-change {
+  0% {
+    background-color: blueviolet;
+  }
+
+  100% {
+    background-color: aqua;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 @keyframes menu-open-b {
   0% {
     position: absolute;
@@ -73,17 +123,6 @@
   }
 
   100% {
-    /* background-color: aqua; */
+    background-color: aqua;
   }
-}
-
-
-@keyframes menu-change {
-  0% {
-    
-  }
-
-  100% {
-    /* background-color: aqua; */
-  }
-}
+} */
