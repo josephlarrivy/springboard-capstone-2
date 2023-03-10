@@ -3,13 +3,14 @@ import { Route, Routes } from 'react-router-dom';
 
 import Home from "./Home";
 // import DisplayMap from './mapComponents/DisplayMap';
-import Map from "./mapComponents/Map";
+import Map from "./unusedFiles/Map";
 import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
 import AllParks from "./parksComponents/AllParks";
+import Park from "./Park";
 
 
-const ApplicationRoutes = ({contextToken, setContextToken}) => {
+const ApplicationRoutes = ({contextToken, setContextToken, showingParks}) => {
 
   return (
     <div>
@@ -26,12 +27,11 @@ const ApplicationRoutes = ({contextToken, setContextToken}) => {
             setContextToken={setContextToken} />}
           />
 
+          <Route exact path="/allParks" element={<AllParks
+            showingParks={showingParks}
+          />} />
 
-
-
-
-
-          <Route exact path="/allParks" element={<AllParks />} />
+        <Route exact path="/park/:code" element={<Park/>} />
 
 
         </Routes>

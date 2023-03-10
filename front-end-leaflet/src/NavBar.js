@@ -18,7 +18,7 @@ const NavBar = ({contextToken, setContextToken}) => {
   }
   
   useEffect(() => {
-    console.log(contextToken)
+    // console.log(contextToken)
   },[])
   
   

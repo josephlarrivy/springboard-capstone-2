@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { Link, Navigate, Route, Routes } from 'react-router-dom';
+
 import '../css/DisplayMap.css'
 
 
@@ -27,7 +29,7 @@ const DisplayMap = ({ centerPosition, zoom, showingParks }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-{/* 
+
 
         {showingParks &&
           showingParks.map(park => {
@@ -47,7 +49,7 @@ const DisplayMap = ({ centerPosition, zoom, showingParks }) => {
                     className='popup-image'
                     src={park.images[0].url}
                   ></img>
-                  <button>View Details</button>
+                    <Link to={`/park/${park.parkCode}`}>View Park</Link>
                 </div>
 
                   
@@ -61,7 +63,7 @@ const DisplayMap = ({ centerPosition, zoom, showingParks }) => {
             )
           })
         }
- */}
+
 
         
       </MapContainer>

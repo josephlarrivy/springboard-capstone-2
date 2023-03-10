@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link, Navigate, Route, Routes } from 'react-router-dom';
+
 
 import BackendApiRequest from "../backendApi";
 import NParksServiceRequest from "../nationalParksApi";
@@ -6,27 +8,34 @@ import TokenContext from "../TokenContext";
 
 
 
-const AllParks = () => {
+const AllParks = ({showingParks}) => {
 
-  const token = useContext(TokenContext);
+  // useEffect(() => {
+  //   console.log(showingParks)
+  // }, [])
 
-  useEffect(() => {
-    const getAllParks = async () => {
-      let resp = await NParksServiceRequest.getAllParks(700)
-    }
-    getAllParks()
-  }, [])
-
-  const handleClick1 = () => {
-    console.log('click1')
-    
-  }
+  // const parkClick = () => {
+  //   console.log('click')
+  // }
 
   return (
     <div>
       <h1>National Parks</h1>
-      <p>qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw</p>
-      <button onClick={handleClick1}>test</button>
+
+      {showingParks &&
+        showingParks.map(park => {
+          return (
+            <div
+              key={park.parkCode}
+              className="park-list-container"
+              // onClick={parkClick}
+            >
+              <h4>{park.fullName}</h4>
+              <Link to={`/park/${park.parkCode}`}>View Park</Link>
+            </div>  
+          )
+        })
+      }
     </div>
   )
 }

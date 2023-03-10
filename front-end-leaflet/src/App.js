@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import DisplayMap from './mapComponents/DisplayMap';
-import Map from './mapComponents/Map';
+import Map from './unusedFiles/Map';
 import Menu from './mapComponents/Menu';
 import NavBar from './NavBar';
 import ApplicationRoutes from './ApplicationRoutes';
@@ -11,23 +11,32 @@ import LoadingSpinner from './loader/LoadingSpinner'
 
 import useLocalStorage from './hooks/useLocalStorage';
 import TokenContext from './TokenContext';
+import NParksServiceRequest from './nationalParksApi';
+
 
 
 function App() {
 
-  // const [loading, setLoading] = useState(true)
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
-  const [contextToken, setContextToken] = useState(null)
 
+  const [contextToken, setContextToken] = useState(null)
   const [menuState, setMenuState] = useState('hamburger')
+
+  const [centerPosition, setCenterPosition] = useState([36.0902, -80.7129])
+  const [zoom, setZoom] = useState(4)
+  const [showingParks, setShowingParks] = useState(null)
 
 
   useEffect(() => {
     const token = localRetrieveToken()
     setContextToken(token)
-    console.log(menuState)
-  }, [])
 
+    const getInitialParks = async () => {
+      let resp = await NParksServiceRequest.getAllParks(700)
+      setShowingParks(resp)
+    }
+    getInitialParks()
+  }, [])
 
   const openMenu = () => {
     setMenuState('menu-container')
@@ -40,10 +49,15 @@ function App() {
     <div>
       <TokenContext.Provider value={contextToken}>
         <BrowserRouter>
-          <Map />
+          <DisplayMap
+            centerPosition={centerPosition}
+            zoom={zoom}
+            showingParks={showingParks}
+          />
           <Menu
             openMenu={openMenu}
             menuState={menuState}
+            showingParks={showingParks}
             contextToken={contextToken}
             setContextToken={setContextToken}
           >

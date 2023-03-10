@@ -5,11 +5,11 @@ import '../css/Menu.css'
 import NavBar from '../NavBar'
 import ParksNav from '../ParksNav'
 
-const Menu = ({ openMenu, menuState, contextToken, setContextToken }) => {
+const Menu = ({ openMenu, menuState, showingParks,contextToken, setContextToken }) => {
 
   useEffect(() => {
     // setReload(false)
-    console.log('Menu reloaded')
+    // console.log('Menu reloaded')
   }, [])
 
   if (menuState === 'hamburger') {
@@ -32,6 +32,7 @@ const Menu = ({ openMenu, menuState, contextToken, setContextToken }) => {
         <ApplicationRoutes
           contextToken={contextToken}
           setContextToken={setContextToken}
+          showingParks={showingParks}
         />
       </div>
     )

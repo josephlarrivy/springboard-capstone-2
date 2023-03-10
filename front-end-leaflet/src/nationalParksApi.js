@@ -37,9 +37,16 @@ class NParksServiceRequest {
       //   'image' : park.images[0].url
       // })
       parksArray.push(park)
-
     }
     return parksArray
+  }
+
+
+  static async getSingleParkData(parkCode) {
+    const resp = await this.makeRequest(`/parks?parkCode=${parkCode}`)
+    console.log(resp)
+    const parkData = resp
+    return parkData
   }
 
 
