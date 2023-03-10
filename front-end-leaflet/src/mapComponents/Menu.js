@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Nav } from 'reactstrap'
+import ApplicationRoutes from '../ApplicationRoutes'
 import '../css/Menu.css'
 import NavBar from '../NavBar'
 
-const Menu = ({ menuState, setMenuState }) => {
+const Menu = ({ menuState, setMenuState, contextToken, setContextToken }) => {
 
   const openMenu = () => {
     setMenuState('open')
@@ -20,12 +21,15 @@ const Menu = ({ menuState, setMenuState }) => {
   } else {
     return (
       <div className='menu-container'>
-      <NavBar />
-        {/* <h1>test</h1>
-      <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test </p>
-      <br></br>
-      <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test </p> */}
+      <NavBar>
 
+      </NavBar>
+
+      <ApplicationRoutes
+        contextToken={contextToken}
+        setContextToken={setContextToken}
+      >
+      </ApplicationRoutes>
       </div>
     )
   }

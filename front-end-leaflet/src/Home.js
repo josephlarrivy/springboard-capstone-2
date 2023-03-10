@@ -29,13 +29,14 @@ const Home = () => {
   }
 
   const handleClick4 = async () => {
-    let resp = await NParksServiceRequest.test()
+    let resp = await NParksServiceRequest.getAllParks(700)
     console.log(resp)
   }
 
   return (
     <div>
       <h1>Home</h1>
+      <p>qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw</p>
       <button onClick={handleClick1}>test</button>
       <button onClick={handleClick2}>test2</button>
       <button onClick={handleClick3}>test3</button>

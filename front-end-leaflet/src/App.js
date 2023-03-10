@@ -37,11 +37,9 @@ function App() {
           <Menu
             menuState={menuState}
             setMenuState={setMenuState}
+            contextToken={contextToken}
+            setContextToken={setContextToken}
           >
-            <ApplicationRoutes
-              contextToken={contextToken}
-              setContextToken={setContextToken}
-            />
           </Menu>
         </BrowserRouter>
       </TokenContext.Provider>
