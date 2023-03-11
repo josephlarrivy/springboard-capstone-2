@@ -43,6 +43,7 @@ function App() {
     setMenuState('menu-container')
   }
 
+
   
 
 
@@ -58,6 +59,7 @@ function App() {
           <Menu
             openMenu={openMenu}
             menuState={menuState}
+            setMenuState={setMenuState}
             showingParks={showingParks}
             contextToken={contextToken}
             setContextToken={setContextToken}

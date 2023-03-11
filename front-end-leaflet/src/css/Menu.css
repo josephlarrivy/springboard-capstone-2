@@ -89,7 +89,10 @@
 
 
 
-
+.close-button {
+  position: absolute;
+  margin-left: 85%;
+}
 
 
 

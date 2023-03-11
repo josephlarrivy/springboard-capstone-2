@@ -5,12 +5,16 @@ import '../css/Menu.css'
 import NavBar from '../NavBar'
 import ParksNav from '../ParksNav'
 
-const Menu = ({ openMenu, menuState, showingParks,contextToken, setContextToken}) => {
+const Menu = ({ openMenu, menuState, setMenuState, showingParks,contextToken, setContextToken}) => {
 
   useEffect(() => {
     // setReload(false)
     // console.log('Menu reloaded')
   }, [])
+
+  const collapseMenu = () => {
+    setMenuState('hamburger')
+  }
 
   if (menuState === 'hamburger') {
     return (
@@ -27,6 +31,7 @@ const Menu = ({ openMenu, menuState, showingParks,contextToken, setContextToken}
           contextToken={contextToken}
           setContextToken={setContextToken}
         />
+        <button className='close-button' onClick={collapseMenu}>close</button>
         <ParksNav />
 
         <ApplicationRoutes
