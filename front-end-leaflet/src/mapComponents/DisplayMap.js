@@ -8,11 +8,11 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 // import { L, Icon } from 'leaflet'
 
 
-const DisplayMap = ({ centerPosition, zoom, showingParks }) => {
+const DisplayMap = ({ centerPosition, zoom, showingParks, setShowingParks}) => {
 
 
   useEffect(() => {
-    
+    console.log('test')
   }, [])
 
 
@@ -49,7 +49,10 @@ const DisplayMap = ({ centerPosition, zoom, showingParks }) => {
                     className='popup-image'
                     src={park.images[0].url}
                   ></img>
-                <Link to={`/park/${park.parkCode}`}>test</Link>
+                <Link
+                  to={`/park/${park.parkCode}`
+                  }>test
+                </Link>
                 </div>
 
                   

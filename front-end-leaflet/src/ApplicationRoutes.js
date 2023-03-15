@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Route, Routes } from 'react-router-dom';
 
 import Home from "./Home";
@@ -10,7 +10,11 @@ import AllParks from "./parksComponents/AllParks";
 import Park from "./Park";
 
 
-const ApplicationRoutes = ({token, setToken, showingParks}) => {
+const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks}) => {
+
+  useEffect(() => {
+    console.log('routes reload')
+  }, [])
 
 
   return (
@@ -34,7 +38,9 @@ const ApplicationRoutes = ({token, setToken, showingParks}) => {
 
         <Route 
           exact path="/park/:code"
-          element={<Park />}
+          element={<Park 
+            setShowingParks={setShowingParks}  
+          />}
         />
 
 

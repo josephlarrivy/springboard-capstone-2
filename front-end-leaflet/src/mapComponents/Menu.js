@@ -5,7 +5,7 @@ import '../css/Menu.css'
 import NavBar from '../NavBar'
 import ParksNav from '../ParksNav'
 
-const Menu = ({ openMenu, menuState, setMenuState, showingParks,token, setToken}) => {
+const Menu = ({ openMenu, menuState, setMenuState, showingParks, setShowingParks, token, setToken}) => {
 
   useEffect(() => {
     // setReload(false)
@@ -38,6 +38,7 @@ const Menu = ({ openMenu, menuState, setMenuState, showingParks,token, setToken}
           token={token}
           setToken={setToken}
           showingParks={showingParks}
+          setShowingParks={setShowingParks}
         />
       </div>
     )

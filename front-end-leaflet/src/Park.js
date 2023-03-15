@@ -8,7 +8,7 @@ import NParksServiceRequest from "./nationalParksApi";
 import './css/Park.css'
 
 
-const Park = () => {
+const Park = (setShowingParks) => {
 
   const parkCode = useParams();
   const [parkData, setParkData] = useState(null)
@@ -19,6 +19,7 @@ const Park = () => {
       setParkData(data)
     }
     getSingleParkData()
+    setParkData(parkData)
   }, [])
 
   if (parkData === null) {

@@ -53,12 +53,14 @@ function App() {
             centerPosition={centerPosition}
             zoom={zoom}
             showingParks={showingParks}
+            setShowingParks={setShowingParks}
           />
           <Menu
             openMenu={openMenu}
             menuState={menuState}
             setMenuState={setMenuState}
             showingParks={showingParks}
+            setShowingParks={setShowingParks}
             token={token}
             setToken={setToken}
           >
