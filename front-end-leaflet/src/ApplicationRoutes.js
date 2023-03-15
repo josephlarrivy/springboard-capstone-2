@@ -10,7 +10,7 @@ import AllParks from "./parksComponents/AllParks";
 import Park from "./Park";
 
 
-const ApplicationRoutes = ({contextToken, setContextToken, showingParks}) => {
+const ApplicationRoutes = ({token, setToken, showingParks}) => {
 
 
   return (
@@ -21,11 +21,11 @@ const ApplicationRoutes = ({contextToken, setContextToken, showingParks}) => {
           <Route exact path="/register"
             element={
             <RegisterForm
-            setContextToken={setContextToken}/>}
+            setToken={setToken}/>}
           />
           <Route exact path="/login"
             element={<LoginForm 
-            setContextToken={setContextToken} />}
+            setToken={setToken} />}
           />
 
           <Route exact path="/allParks" element={<AllParks

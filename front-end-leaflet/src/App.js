@@ -10,7 +10,6 @@ import ApplicationRoutes from './ApplicationRoutes';
 import LoadingSpinner from './loader/LoadingSpinner'
 
 import useLocalStorage from './hooks/useLocalStorage';
-import TokenContext from './TokenContext';
 import NParksServiceRequest from './nationalParksApi';
 
 
@@ -19,7 +18,7 @@ function App() {
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
 
-  const [contextToken, setContextToken] = useState(null)
+  const [token, setToken] = useState(null)
   const [menuState, setMenuState] = useState('hamburger')
 
   const [centerPosition, setCenterPosition] = useState([36.0902, -80.7129])
@@ -29,7 +28,7 @@ function App() {
 
   useEffect(() => {
     const token = localRetrieveToken()
-    setContextToken(token)
+    setToken(token)
 
     const getInitialParks = async () => {
       let resp = await NParksServiceRequest.getAllParks(200)
@@ -49,7 +48,6 @@ function App() {
 
   return (
     <div>
-      <TokenContext.Provider value={contextToken}>
         <BrowserRouter>
           <DisplayMap
             centerPosition={centerPosition}
@@ -61,12 +59,11 @@ function App() {
             menuState={menuState}
             setMenuState={setMenuState}
             showingParks={showingParks}
-            contextToken={contextToken}
-            setContextToken={setContextToken}
+            token={token}
+            setToken={setToken}
           >
           </Menu>
         </BrowserRouter>
-      </TokenContext.Provider>
     </div>
   );
 }

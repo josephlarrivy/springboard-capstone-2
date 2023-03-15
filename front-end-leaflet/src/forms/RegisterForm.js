@@ -6,7 +6,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
  
 
-const RegisterForm = ({setContextToken}) => {
+const RegisterForm = ({setToken}) => {
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
 
@@ -33,7 +33,7 @@ const RegisterForm = ({setContextToken}) => {
     evt.preventDefault();
     const request = await BackendApiRequest.registerNewUser(formData)
     const token = request.data.token
-    setContextToken(token)
+    setToken(token)
     localStoreToken(token)
     setFormData(INITIAL_STATE)
   }

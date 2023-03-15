@@ -5,7 +5,7 @@ import '../css/Menu.css'
 import NavBar from '../NavBar'
 import ParksNav from '../ParksNav'
 
-const Menu = ({ openMenu, menuState, setMenuState, showingParks,contextToken, setContextToken}) => {
+const Menu = ({ openMenu, menuState, setMenuState, showingParks,token, setToken}) => {
 
   useEffect(() => {
     // setReload(false)
@@ -28,15 +28,15 @@ const Menu = ({ openMenu, menuState, setMenuState, showingParks,contextToken, se
     return (
       <div className={menuState}>
         <NavBar
-          contextToken={contextToken}
-          setContextToken={setContextToken}
+          token={token}
+          setToken={setToken}
         />
         <button className='close-button' onClick={collapseMenu}>close</button>
         <ParksNav />
 
         <ApplicationRoutes
-          contextToken={contextToken}
-          setContextToken={setContextToken}
+          token={token}
+          setToken={setToken}
           showingParks={showingParks}
         />
       </div>

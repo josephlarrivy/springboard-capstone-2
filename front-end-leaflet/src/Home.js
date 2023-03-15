@@ -2,14 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 
 import BackendApiRequest from "./backendApi";
 import NParksServiceRequest from "./nationalParksApi";
-import TokenContext from "./TokenContext";
 import useLocalStorage from "./hooks/useLocalStorage";
 
 
 
 const Home = () => {
 
-  const token = useContext(TokenContext);
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
 

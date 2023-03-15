@@ -5,7 +5,7 @@ import BackendApiRequest from "../backendApi";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 
-const LoginForm = ({ setContextToken }) => {
+const LoginForm = ({ setToken }) => {
 
     const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeTokenn] = useLocalStorage()
 
@@ -29,7 +29,7 @@ const LoginForm = ({ setContextToken }) => {
         evt.preventDefault();
         const request = await BackendApiRequest.login(formData)
         const token = request.data.token
-        setContextToken(token)
+        setToken(token)
         localStoreToken(token)
         setFormData(INITIAL_STATE)
     }

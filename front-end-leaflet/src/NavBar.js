@@ -8,23 +8,23 @@ import { Link, Route, Routes } from 'react-router-dom';
 import useLocalStorage from './hooks/useLocalStorage';
 
 
-const NavBar = ({contextToken, setContextToken}) => {
+const NavBar = ({token, setToken}) => {
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
 
   const logOut = () => {
     localRemoveToken()
-    setContextToken(null)
+    setToken(null)
     // window.location.reload(true);
   }
   
   useEffect(() => {
-    // console.log(contextToken)
+    // console.log(token)
   },[])
   
   
 
-  if (contextToken === undefined || contextToken === null) {
+  if (token === undefined || token === null) {
     return (
       <div>
         <Navbar>
