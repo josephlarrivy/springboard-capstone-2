@@ -5,22 +5,35 @@ import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "reactstrap";
 // import { Link, Route, Routes } from 'react-router-dom';
 
+import NParksServiceRequest from "./nationalParksApi";
 
 
-const ParksNav = () => {
+
+const ParksNav = ({setShowingParks}) => {
+
+  const loadAllParks = async () => {
+    let resp = await NParksServiceRequest.getAllParks(700)
+    setShowingParks(resp)
+  }
 
 
-    return (
-      <div>
-        <Navbar>
-          <Nav >
-            <NavItem >
-              <NavLink to="/allParks">Parks</NavLink>
-            </NavItem>
-          </Nav>
-        </Navbar>
-      </div>
-    )
+  return (
+    <div>
+      <Navbar>
+        <Nav >
+
+          <NavItem >
+            <NavLink
+              to="/allParks"
+              onClick={loadAllParks}
+              >Parks
+            </NavLink>
+          </NavItem>
+
+        </Nav>
+      </Navbar>
+    </div>
+  )
 
 }
 

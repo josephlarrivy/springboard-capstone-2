@@ -5,7 +5,7 @@ import '../css/Menu.css'
 import NavBar from '../NavBar'
 import ParksNav from '../ParksNav'
 
-const Menu = ({ openMenu, menuState, setMenuState, showingParks, setShowingParks, token, setToken}) => {
+const Menu = ({ openMenu, menuState, setMenuState, showingParks, setShowingParks, token, setToken, setZoom}) => {
 
   useEffect(() => {
     console.log('Menu reloaded')
@@ -32,13 +32,17 @@ const Menu = ({ openMenu, menuState, setMenuState, showingParks, setShowingParks
           setToken={setToken}
         />
         <button className='close-button' onClick={collapseMenu}>close</button>
-        <ParksNav />
+        <ParksNav
+          setShowingParks={setShowingParks}
+          // setZoom={setZoom}
+        />
 
         <ApplicationRoutes
           token={token}
           setToken={setToken}
           showingParks={showingParks}
           setShowingParks={setShowingParks}
+          setZoom={setZoom}
         />
       </div>
     )

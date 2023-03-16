@@ -8,16 +8,32 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 // import { L, Icon } from 'leaflet'
 
 
-const DisplayMap = ({ centerPosition, zoom, showingParks, setShowingParks}) => {
+const DisplayMap = ({ centerPosition, zoom, setZoom, changeZoom, showingParks, setShowingParks}) => {
+  
 
 
   useEffect(() => {
     console.log('DisplayMap reloaded')
-    console.log(showingParks)
+    console.log(zoom)
   }, [])
 
+  // useEffect(() => {
+  //   // console.log(showingParks && showingParks.length)
+  //   if (!showingParks) {
+  //     console.log('!showingParks')
+  //   } else if (showingParks.length === 1) {
+  //     console.log('length === 1')
+  //     changeZoom(25)
+  //     // console.log(zoom)
+  //   } else {
+  //     console.log('length > 1')
+  //     changeZoom(15)
+  //     // console.log(zoom)
+  //   }
+  // }, [showingParks])
 
-  
+
+
   return (
     <div className='display-map-container'>
       <MapContainer

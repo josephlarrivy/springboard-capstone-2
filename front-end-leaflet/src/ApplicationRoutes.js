@@ -8,7 +8,7 @@ import AllParks from "./parksComponents/AllParks";
 import Park from "./Park";
 
 
-const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks}) => {
+const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks, setZoom}) => {
 
   useEffect(() => {
     console.log('ApplicationRoutes reload')
@@ -38,7 +38,8 @@ const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks}) => 
           exact path="/park/:code"
           element={<Park 
             showingParks={showingParks}
-            setShowingParks={setShowingParks}  
+            setShowingParks={setShowingParks}
+            setZoom={setZoom}
           />}
         />
 

@@ -31,7 +31,7 @@ function App() {
     setToken(token)
 
     const getInitialParks = async () => {
-      let resp = await NParksServiceRequest.getAllParks(100)
+      let resp = await NParksServiceRequest.getAllParks(700)
       setShowingParks(resp)
     }
     getInitialParks()
@@ -43,7 +43,10 @@ function App() {
   }
 
 
-  
+  const changeZoom = (num) => {
+    setZoom(num)
+    console.log('new zoom:', zoom)
+  }
 
 
   return (
@@ -52,6 +55,8 @@ function App() {
           <DisplayMap
             centerPosition={centerPosition}
             zoom={zoom}
+            setZoom={setZoom}
+            changeZoom={changeZoom}
             showingParks={showingParks}
             setShowingParks={setShowingParks}
           />
@@ -63,6 +68,7 @@ function App() {
             setShowingParks={setShowingParks}
             token={token}
             setToken={setToken}
+            setZoom={setZoom}
           >
           </Menu>
         </BrowserRouter>
