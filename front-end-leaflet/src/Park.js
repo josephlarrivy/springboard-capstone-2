@@ -8,7 +8,7 @@ import NParksServiceRequest from "./nationalParksApi";
 import './css/Park.css'
 
 
-const Park = ({showingParks, setShowingParks, setZoom}) => {
+const Park = ({showingParks, setShowingParks, changeZoom}) => {
 
   const parkCode = useParams();
   const [parkData, setParkData] = useState(null)
@@ -19,11 +19,12 @@ const Park = ({showingParks, setShowingParks, setZoom}) => {
       setParkData(data)
       // console.log(data)
       setShowingParks([data])
+      changeZoom(10)
+
     }
     getSingleParkData()
     setParkData(parkData)
     console.log('Park reloaded')
-    setZoom(8)
   }, [])
 
   if (parkData === null) {

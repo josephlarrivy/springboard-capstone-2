@@ -8,18 +8,20 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 // import { L, Icon } from 'leaflet'
 
 
-const DisplayMap = ({ centerPosition, zoom, setZoom, changeZoom, showingParks, setShowingParks}) => {
+const DisplayMap = ({ centerPosition, zoom, changeZoom, showingParks, setShowingParks}) => {
   
-  const [currentZoom, setCurrentZoom] = useState()
+  const [currentZoom, setCurrentZoom] = useState(5)
 
   useEffect(() => {
-    setCurrentZoom(10)
+    setCurrentZoom(zoom)
+    console.log('currentZoom:', currentZoom)
   }, [zoom])
 
 
   useEffect(() => {
+    setCurrentZoom(4)
     console.log('DisplayMap reloaded')
-    console.log(zoom)
+    console.log('DisplayMap zoom:', zoom)
   }, [])
 
   

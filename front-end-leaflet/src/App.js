@@ -22,7 +22,7 @@ function App() {
   const [menuState, setMenuState] = useState('hamburger')
 
   const [centerPosition, setCenterPosition] = useState([36.0902, -80.7129])
-  const [zoom, setZoom] = useState(4)
+  const [zoom, setZoom] = useState()
   const [showingParks, setShowingParks] = useState(null)
 
 
@@ -35,12 +35,16 @@ function App() {
       setShowingParks(resp)
     }
     getInitialParks()
+    setZoom(4)
   }, [])
+
+  useEffect(() => {
+    console.log('App reload')
+  }, [zoom, showingParks])
 
   const openMenu = () => {
     setMenuState('menu-container')
   }
-
 
   const changeZoom = (num) => {
     setZoom(num)
@@ -54,7 +58,6 @@ function App() {
           <DisplayMap
             centerPosition={centerPosition}
             zoom={zoom}
-            setZoom={setZoom}
             changeZoom={changeZoom}
             showingParks={showingParks}
             setShowingParks={setShowingParks}
@@ -67,7 +70,7 @@ function App() {
             setShowingParks={setShowingParks}
             token={token}
             setToken={setToken}
-            setZoom={setZoom}
+            changeZoom={changeZoom}
           >
           </Menu>
         </BrowserRouter>

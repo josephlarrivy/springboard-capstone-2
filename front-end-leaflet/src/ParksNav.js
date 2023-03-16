@@ -9,7 +9,7 @@ import NParksServiceRequest from "./nationalParksApi";
 
 
 
-const ParksNav = ({setShowingParks}) => {
+const ParksNav = ({setShowingParks, changeZoom}) => {
 
   const loadAllParks = async () => {
     let resp = await NParksServiceRequest.getAllParks(700)
@@ -27,6 +27,13 @@ const ParksNav = ({setShowingParks}) => {
               to="/allParks"
               onClick={loadAllParks}
               >Parks
+            </NavLink>
+          </NavItem>
+
+          <NavItem >
+            <NavLink
+              onClick={() => changeZoom(10)}
+            >ZOOM
             </NavLink>
           </NavItem>
 

@@ -8,7 +8,11 @@ import NParksServiceRequest from "../nationalParksApi";
 
 
 
-const AllParks = ({showingParks}) => {
+const AllParks = ({showingParks, changeZoom}) => {
+
+  useEffect(() => {
+    changeZoom(3)
+  }, [])
 
   return (
     <div>
