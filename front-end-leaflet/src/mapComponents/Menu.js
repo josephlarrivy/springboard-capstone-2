@@ -8,8 +8,8 @@ import ParksNav from '../ParksNav'
 const Menu = ({ openMenu, menuState, setMenuState, showingParks, setShowingParks, token, setToken}) => {
 
   useEffect(() => {
-    // setReload(false)
-    // console.log('Menu reloaded')
+    console.log('Menu reloaded')
+    console.log(showingParks)
   }, [])
 
   const collapseMenu = () => {

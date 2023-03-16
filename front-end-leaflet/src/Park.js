@@ -8,7 +8,7 @@ import NParksServiceRequest from "./nationalParksApi";
 import './css/Park.css'
 
 
-const Park = (setShowingParks) => {
+const Park = ({showingParks, setShowingParks}) => {
 
   const parkCode = useParams();
   const [parkData, setParkData] = useState(null)
@@ -17,9 +17,11 @@ const Park = (setShowingParks) => {
     const getSingleParkData = async () => {
       let data = await NParksServiceRequest.getSingleParkData(parkCode.code)
       setParkData(data)
+      setShowingParks([parkData])
     }
     getSingleParkData()
     setParkData(parkData)
+    console.log('Park reloaded')
   }, [])
 
   if (parkData === null) {

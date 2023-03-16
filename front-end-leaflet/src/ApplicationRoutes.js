@@ -2,8 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Route, Routes } from 'react-router-dom';
 
 import Home from "./Home";
-// import DisplayMap from './mapComponents/DisplayMap';
-import Map from "./unusedFiles/Map";
 import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
 import AllParks from "./parksComponents/AllParks";
@@ -13,7 +11,7 @@ import Park from "./Park";
 const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks}) => {
 
   useEffect(() => {
-    console.log('routes reload')
+    console.log('ApplicationRoutes reload')
   }, [])
 
 
@@ -39,6 +37,7 @@ const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks}) => 
         <Route 
           exact path="/park/:code"
           element={<Park 
+            showingParks={showingParks}
             setShowingParks={setShowingParks}  
           />}
         />

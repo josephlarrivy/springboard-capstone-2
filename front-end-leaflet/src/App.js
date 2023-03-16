@@ -31,11 +31,11 @@ function App() {
     setToken(token)
 
     const getInitialParks = async () => {
-      let resp = await NParksServiceRequest.getAllParks(200)
+      let resp = await NParksServiceRequest.getAllParks(100)
       setShowingParks(resp)
     }
     getInitialParks()
-    console.log(centerPosition)
+    // console.log(centerPosition)
   }, [])
 
   const openMenu = () => {

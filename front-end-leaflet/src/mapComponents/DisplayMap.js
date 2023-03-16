@@ -12,11 +12,12 @@ const DisplayMap = ({ centerPosition, zoom, showingParks, setShowingParks}) => {
 
 
   useEffect(() => {
-    console.log('test')
+    console.log('DisplayMap reloaded')
+    console.log(showingParks)
   }, [])
 
 
-
+  
   return (
     <div className='display-map-container'>
       <MapContainer
@@ -41,27 +42,25 @@ const DisplayMap = ({ centerPosition, zoom, showingParks, setShowingParks}) => {
                   park.longitude
                 ]}
               >
-              <Popup>
-                <h4>{park.fullName}</h4>
+                <Popup>
+                  <h4>{park.fullName}</h4>
 
-                <div className='popup-image-div'>
-                  <img
-                    className='popup-image'
-                    src={park.images[0].url}
-                  ></img>
-                <Link
-                  to={`/park/${park.parkCode}`
-                  }>test
-                </Link>
-                </div>
+                  <div className='popup-image-div'>
+                    <img
+                      className='popup-image'
+                      src={park.images[0].url}
+                    ></img>
+                  <Link
+                    to={`/park/${park.parkCode}`
+                    }>test
+                  </Link>
+                  </div>
 
-                  
-                <div className='popup-description-div'>
-                  <p className='popup-description'>{park.description}</p>
-                </div>
-                
-
-              </Popup>
+                    
+                  <div className='popup-description-div'>
+                    <p className='popup-description'>{park.description}</p>
+                  </div>
+                </Popup>
               </Marker>
             )
           })
