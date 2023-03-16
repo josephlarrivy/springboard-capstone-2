@@ -35,7 +35,6 @@ function App() {
       setShowingParks(resp)
     }
     getInitialParks()
-    // console.log(centerPosition)
   }, [])
 
   const openMenu = () => {

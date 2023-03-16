@@ -6,6 +6,9 @@
 
 // export default mapboxKey;
 
-const parks_api_key = 'Oj0icfbPcmejCVBPm9MpUCI70cXUBXIIzsbh3slW'
+// const parks_api_key = 'Oj0icfbPcmejCVBPm9MpUCI70cXUBXIIzsbh3slW'
+
+const parks_api_key =
+'aQURbVL0l6KSazH3ySz8QZw6ZfblDs0gAWsGhKAm'
 
 export { parks_api_key }

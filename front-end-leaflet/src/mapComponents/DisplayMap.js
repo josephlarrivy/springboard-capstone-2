@@ -10,6 +10,11 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 const DisplayMap = ({ centerPosition, zoom, setZoom, changeZoom, showingParks, setShowingParks}) => {
   
+  const [currentZoom, setCurrentZoom] = useState()
+
+  useEffect(() => {
+    setCurrentZoom(10)
+  }, [zoom])
 
 
   useEffect(() => {
@@ -17,29 +22,13 @@ const DisplayMap = ({ centerPosition, zoom, setZoom, changeZoom, showingParks, s
     console.log(zoom)
   }, [])
 
-  // useEffect(() => {
-  //   // console.log(showingParks && showingParks.length)
-  //   if (!showingParks) {
-  //     console.log('!showingParks')
-  //   } else if (showingParks.length === 1) {
-  //     console.log('length === 1')
-  //     changeZoom(25)
-  //     // console.log(zoom)
-  //   } else {
-  //     console.log('length > 1')
-  //     changeZoom(15)
-  //     // console.log(zoom)
-  //   }
-  // }, [showingParks])
-
-
-
+  
   return (
     <div className='display-map-container'>
       <MapContainer
       key={'mapContainer'}
       center={centerPosition}
-      zoom={zoom}>
+      zoom={currentZoom}>
         <TileLayer
           key={'tileLayer'}
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
