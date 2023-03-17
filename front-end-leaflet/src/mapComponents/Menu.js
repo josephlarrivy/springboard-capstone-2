@@ -5,7 +5,7 @@ import '../css/Menu.css'
 import NavBar from '../NavBar'
 import ParksNav from '../ParksNav'
 
-const Menu = ({ openMenu, menuState, setMenuState, showingParks, setShowingParks, token, setToken, changeZoom}) => {
+const Menu = ({ openMenu, menuState, setMenuState, showingParks, setShowingParks, token, setToken, changeZoom, zoom, setCenterPosition}) => {
 
   useEffect(() => {
     console.log('Menu reloaded')
@@ -15,6 +15,22 @@ const Menu = ({ openMenu, menuState, setMenuState, showingParks, setShowingParks
   const collapseMenu = () => {
     setMenuState('hamburger')
   }
+
+  const changeCenterPosition = (lat, lon) => {
+    setCenterPosition([lat, lon])
+  }
+
+  useEffect(() => {
+    console.log('App reload')
+    console.log(showingParks && showingParks[0].latitude)
+    console.log(showingParks && showingParks[0].longitude)
+    if (showingParks) {
+      changeCenterPosition(
+        showingParks && showingParks[0].latitude,
+        showingParks && showingParks[0].longitude
+      )
+    }
+  }, [zoom, showingParks])
 
   if (menuState === 'hamburger') {
     return (
@@ -36,7 +52,6 @@ const Menu = ({ openMenu, menuState, setMenuState, showingParks, setShowingParks
           setShowingParks={setShowingParks}
           changeZoom={changeZoom}
         />
-
         <ApplicationRoutes
           token={token}
           setToken={setToken}

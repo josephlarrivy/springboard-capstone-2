@@ -23,7 +23,7 @@ function App() {
   const [menuState, setMenuState] = useState('hamburger')
 
   const [centerPosition, setCenterPosition] = useState([36.0902, -80.7129])
-  const [zoom, setZoom] = useState()
+  const [zoom, setZoom] = useState(4)
   const [showingParks, setShowingParks] = useState(null)
 
 
@@ -39,9 +39,21 @@ function App() {
     setZoom(4)
   }, [])
 
-  useEffect(() => {
-    console.log('App reload')
-  }, [zoom, showingParks])
+  // const changeCenterPosition = (lat, lon) => {
+  //   setCenterPosition([lat, lon])
+  // }
+
+  // useEffect(() => {
+  //   console.log('App reload')
+  //   console.log(showingParks && showingParks[0].latitude)
+  //   console.log(showingParks && showingParks[0].longitude)
+  //   if (showingParks) {
+  //     changeCenterPosition(
+  //       showingParks && showingParks[0].latitude,
+  //       showingParks && showingParks[0].longitude
+  //     )
+  //   }
+  // }, [zoom, showingParks])
 
   const openMenu = () => {
     setMenuState('menu-container')
@@ -51,6 +63,8 @@ function App() {
     setZoom(num)
     console.log('new zoom:', zoom)
   }
+
+  
 
 
   return (
@@ -72,6 +86,8 @@ function App() {
             token={token}
             setToken={setToken}
             changeZoom={changeZoom}
+            zoom={zoom}
+            setCenterPosition={setCenterPosition}
           >
           </Menu>
         </BrowserRouter>
