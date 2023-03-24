@@ -3,10 +3,13 @@ import React, { useState, useEffect, useContext } from "react";
 import BackendApiRequest from "./backendApi";
 import NParksServiceRequest from "./nationalParksApi";
 import useLocalStorage from "./hooks/useLocalStorage";
+import DisplayMap from "./mapComponents/DisplayMap";
+
+import './css/Home.css'
+import Menu from "./mapComponents/Menu";
 
 
-
-const Home = () => {
+const Home = ({centerPosition, changeCenterPosition, zoom, changeZoom, showingParks, setShowingParks}) => {
 
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
@@ -32,7 +35,15 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className="home-container">
+      <DisplayMap
+        centerPosition={centerPosition}
+        zoom={zoom}
+        changeZoom={changeZoom}
+        showingParks={showingParks}
+        setShowingParks={setShowingParks}
+      />
+      <Menu />
       <h1>Home</h1>
       <p>qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw qwd qw d qwdqwd q w d qw d qw dwqdqw</p>
       <button onClick={handleClick1}>test</button>

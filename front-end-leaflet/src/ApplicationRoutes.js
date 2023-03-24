@@ -8,7 +8,7 @@ import AllParks from "./parksComponents/AllParks";
 import Park from "./Park";
 
 
-const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks, changeZoom}) => {
+const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks, changeZoom, zoom, centerPosition, changeCenterPosition}) => {
 
   useEffect(() => {
     console.log('ApplicationRoutes reload')
@@ -18,8 +18,18 @@ const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks, chan
   return (
     <div>
         <Routes>
-          <Route exact path="/" element={<Home />}/>
-          {/* <Route exact path="/map" element={<Map /> } /> */}
+          
+          <Route
+            exact path="/"
+            element={<Home 
+              centerPosition={centerPosition}
+              changeCenterPosition={changeCenterPosition}
+              zoom={zoom}
+              changeZoom={changeZoom}
+              showingParks={showingParks}
+              setShowingParks={setShowingParks}
+            />}/>
+          
           <Route exact path="/register"
             element={
             <RegisterForm
@@ -44,6 +54,7 @@ const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks, chan
           />}
         />
 
+        {/* <Route exact path="/map" element={<Map /> } /> */}
 
         </Routes>
 

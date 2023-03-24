@@ -43,22 +43,22 @@ const Menu = ({ openMenu, menuState, setMenuState, showingParks, setShowingParks
   } else if (menuState === 'menu-container') {
     return (
       <div className={menuState}>
-        <NavBar
+        {/* <NavBar
           token={token}
           setToken={setToken}
-        />
+        /> */}
         <button className='close-button' onClick={collapseMenu}>close</button>
         <ParksNav
           setShowingParks={setShowingParks}
           changeZoom={changeZoom}
         />
-        <ApplicationRoutes
+        {/* <ApplicationRoutes
           token={token}
           setToken={setToken}
           showingParks={showingParks}
           setShowingParks={setShowingParks}
           changeZoom={changeZoom}
-        />
+        /> */}
       </div>
     )
   } 

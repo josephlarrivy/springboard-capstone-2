@@ -26,7 +26,7 @@ const NavBar = ({token, setToken}) => {
 
   if (token === undefined || token === null) {
     return (
-      <div>
+      <div className='NavBar'>
         <Navbar>
           <Nav >
             <NavItem >
@@ -44,7 +44,7 @@ const NavBar = ({token, setToken}) => {
     )
   } else {
     return (
-      <div>
+      <div className='NavBar'>
         <Navbar>
           <Nav >
             <NavItem >

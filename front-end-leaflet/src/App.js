@@ -17,48 +17,32 @@ import NParksServiceRequest from './nationalParksApi';
 
 function App() {
 
-  
-
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
 
   const [token, setToken] = useState(null)
   const [menuState, setMenuState] = useState('hamburger')
 
-  const [centerPosition, setCenterPosition] = useState([36.0902, -80.7129])
-  const [zoom, setZoom] = useState(4)
+  const [centerPosition, setCenterPosition] = useState([28.0902, -20.7129])
+  const [zoom, setZoom] = useState(2)
   const [showingParks, setShowingParks] = useState(null)
 
 
   useEffect(() => {
     const token = localRetrieveToken()
     setToken(token)
-
     const getInitialParks = async () => {
       let resp = await NParksServiceRequest.getAllParks(700)
       setShowingParks(resp)
     }
     getInitialParks()
-    setZoom(4)
   }, [])
 
-  // const changeCenterPosition = (lat, lon) => {
-  //   setCenterPosition([lat, lon])
+  // const openMenu = () => {
+  //   setMenuState('menu-container')
   // }
 
-  // useEffect(() => {
-  //   console.log('App reload')
-  //   console.log(showingParks && showingParks[0].latitude)
-  //   console.log(showingParks && showingParks[0].longitude)
-  //   if (showingParks) {
-  //     changeCenterPosition(
-  //       showingParks && showingParks[0].latitude,
-  //       showingParks && showingParks[0].longitude
-  //     )
-  //   }
-  // }, [zoom, showingParks])
-
-  const openMenu = () => {
-    setMenuState('menu-container')
+  const changeCenterPosition = (lat, lon) => {
+    setCenterPosition([lat, lon])
   }
 
   const changeZoom = (num) => {
@@ -67,33 +51,25 @@ function App() {
   }
 
   
-
-
   return (
-    <div>
+    <>
         <BrowserRouter>
-          <DisplayMap
-            centerPosition={centerPosition}
-            zoom={zoom}
-            changeZoom={changeZoom}
-            showingParks={showingParks}
-            setShowingParks={setShowingParks}
-          />
-          <Menu
-            openMenu={openMenu}
-            menuState={menuState}
-            setMenuState={setMenuState}
-            showingParks={showingParks}
-            setShowingParks={setShowingParks}
-            token={token}
-            setToken={setToken}
-            changeZoom={changeZoom}
-            zoom={zoom}
-            setCenterPosition={setCenterPosition}
-          >
-          </Menu>
+        <NavBar
+          token={token}
+          setToken={setToken}
+        />
+        <ApplicationRoutes
+          token={token}
+          setToken={setToken}
+          showingParks={showingParks}
+          setShowingParks={setShowingParks}
+          changeZoom={changeZoom}
+          zoom={zoom}
+          centerPosition={centerPosition}
+          changeCenterPosition={changeCenterPosition}
+        />
         </BrowserRouter>
-    </div>
+    </>
   );
 }
 
