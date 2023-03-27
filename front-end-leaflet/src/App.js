@@ -54,20 +54,16 @@ function App() {
   return (
     <>
         <BrowserRouter>
-        <NavBar
-          token={token}
-          setToken={setToken}
-        />
-        <ApplicationRoutes
-          token={token}
-          setToken={setToken}
-          showingParks={showingParks}
-          setShowingParks={setShowingParks}
-          changeZoom={changeZoom}
-          zoom={zoom}
-          centerPosition={centerPosition}
-          changeCenterPosition={changeCenterPosition}
-        />
+          <ApplicationRoutes
+            token={token}
+            setToken={setToken}
+            showingParks={showingParks}
+            setShowingParks={setShowingParks}
+            changeZoom={changeZoom}
+            zoom={zoom}
+            centerPosition={centerPosition}
+            changeCenterPosition={changeCenterPosition}
+          />
         </BrowserRouter>
     </>
   );

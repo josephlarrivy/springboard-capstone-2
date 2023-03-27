@@ -2,15 +2,16 @@
 .display-map-container {
   position: absolute;
   overflow: hidden;
-  height: 100%;
-  width: 100%;
+  height: fill;
+  width: fill;
   z-index: 0;
   /* border: 2px solid black; */
+  /* visibility: hidden; */
 }
 
 .leaflet-container {
   position: absolute;
-  z-index: 1;
+  /* z-index: 1; */
   /* margin-top: -2vh; */
   /* margin-bottom: 0vh; */
   height: 100%;

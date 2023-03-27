@@ -16,7 +16,7 @@ const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks, chan
 
 
   return (
-    <div>
+    <>
         <Routes>
           
           <Route
@@ -58,7 +58,7 @@ const ApplicationRoutes = ({token, setToken, showingParks, setShowingParks, chan
 
         </Routes>
 
-    </div>
+    </>
   )
 }
 
